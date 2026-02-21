@@ -8,33 +8,341 @@
 <link href="https://fonts.googleapis.com/css2?family=Shippori+Mincho:wght@400;600;700&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet">
 <style>
   :root {
-    --bg: #f5f0e8; --bg2: #ede8dc; --surface: #faf7f2;
-    --border: #d4c9b0; --text: #2a2318; --text2: #7a6e5f;
-    --accent: #c45c2e; --accent2: #4a7c59; --accent3: #3d5a8a;
-    --small: #7bc8b0; --medium: #f0a860; --large: #e07878;
-    --shadow: 0 2px 16px rgba(42,35,24,0.1); --nav-h: 64px;
+    --bg:#f5f0e8; --bg2:#ede8dc; --surface:#faf7f2;
+    --border:#d4c9b0; --text:#2a2318; --text2:#7a6e5f;
+    --accent:#c45c2e; --accent2:#4a7c59; --accent3:#3d5a8a;
+    --small:#7bc8b0; --medium:#f0a860; --large:#e07878;
+    --shadow:0 2px 16px rgba(42,35,24,0.1); --nav-h:64px;
   }
   [data-dark] {
-    --bg: #1a1710; --bg2: #22201a; --surface: #2a2720;
-    --border: #3a3628; --text: #f0ebe0; --text2: #a09880;
-    --shadow: 0 2px 16px rgba(0,0,0,0.3);
+    --bg:#1a1710; --bg2:#22201a; --surface:#2a2720;
+    --border:#3a3628; --text:#f0ebe0; --text2:#a09880;
+    --shadow:0 2px 16px rgba(0,0,0,0.3);
   }
-  * { margin:0; padding:0; box-sizing:border-box; -webkit-tap-highlight-color:transparent; }
-  body { font-family:'DM Sans',sans-serif; background:var(--bg); color:var(--text); min-height:100dvh; overflow-x:hidden; transition:background .3s,color .3s; }
-  .app { display:flex; flex-direction:column; min-height:100dvh; padding-bottom:var(--nav-h); }
+  *{margin:0;padding:0;box-sizing:border-box;-webkit-tap-highlight-color:transparent;}
+  body{font-family:'DM Sans',sans-serif;background:var(--bg);color:var(--text);min-height:100dvh;overflow-x:hidden;transition:background .3s,color .3s;}
+  .app{display:flex;flex-direction:column;min-height:100dvh;padding-bottom:var(--nav-h);}
 
   /* CABECERA */
-  .topbar { position:sticky; top:0; z-index:20; background:var(--bg2); border-bottom:1px solid var(--border); padding:14px 18px; display:flex; align-items:center; justify-content:space-between; }
-  .logo { font-family:'Shippori Mincho',serif; font-size:20px; font-weight:700; }
-  .logo em { color:var(--accent); font-style:normal; }
-  .icon-btn { width:36px; height:36px; border:none; background:transparent; cursor:pointer; font-size:20px; display:flex; align-items:center; justify-content:center; border-radius:50%; }
-  .icon-btn:active { background:var(--border); }
+  .topbar{position:sticky;top:0;z-index:20;background:var(--bg2);border-bottom:1px solid var(--border);padding:14px 18px;display:flex;align-items:center;justify-content:space-between;}
+  .logo{font-family:'Shippori Mincho',serif;font-size:20px;font-weight:700;}
+  .logo em{color:var(--accent);font-style:normal;}
+  .icon-btn{width:36px;height:36px;border:none;background:transparent;cursor:pointer;font-size:20px;display:flex;align-items:center;justify-content:center;border-radius:50%;}
+  .icon-btn:active{background:var(--border);}
 
   /* PÁGINAS */
-  .main { flex:1; overflow-y:auto; }
-  .page { display:none; padding:18px 16px 24px; }
-  .page.active { display:block; }
-  .page-title { font-family:'Shippori Mincho',serif; font-size:22px; font-weight:600; margin-bottom:4px; }
+  .main{flex:1;overflow-y:auto;}
+  .page{display:none;padding:18px 16px 24px;}
+  .page.active{display:block;}
+  .page-title{font-family:'Shippori Mincho',serif;font-size:22px;font-weight:600;margin-bottom:4px;}
+  .page-sub{color:var(--text2);font-size:13px;margin-bottom:18px;}
+
+  /* TARJETAS */
+  .card{background:var(--surface);border:1px solid var(--border);border-radius:16px;padding:16px;box-shadow:var(--shadow);margin-bottom:12px;transition:background .3s;}
+  .card-label{font-size:10px;font-weight:600;text-transform:uppercase;letter-spacing:1.8px;color:var(--text2);margin-bottom:12px;}
+
+  /* TAREAS */
+  .task-slot{border:1.5px dashed var(--border);border-radius:12px;padding:13px 12px;margin-bottom:10px;cursor:pointer;transition:all .18s;position:relative;display:flex;align-items:center;min-height:62px;}
+  .task-slot:active{background:rgba(196,92,46,.06);}
+  .task-slot.filled{border-style:solid;cursor:default;}
+  .task-inner{flex:1;}
+  .size-badge{display:inline-block;padding:2px 8px;border-radius:20px;font-size:9px;font-weight:600;text-transform:uppercase;letter-spacing:1px;margin-bottom:4px;}
+  .slot-small  .size-badge{background:rgba(123,200,176,.2);color:var(--small); border:1px solid var(--small);}
+  .slot-medium .size-badge{background:rgba(240,168,96,.2); color:var(--medium);border:1px solid var(--medium);}
+  .slot-large  .size-badge{background:rgba(224,120,120,.2);color:var(--large); border:1px solid var(--large);}
+  .task-name{font-size:15px;font-weight:500;line-height:1.3;}
+  .task-empty{color:var(--text2);font-size:14px;}
+  .task-check{width:28px;height:28px;flex-shrink:0;border:2px solid var(--border);border-radius:50%;cursor:pointer;display:flex;align-items:center;justify-content:center;font-size:13px;transition:all .2s;background:transparent;color:transparent;margin-left:10px;}
+  .task-check.done{background:var(--accent2);border-color:var(--accent2);color:white;}
+  .task-slot.done-slot{opacity:.45;}
+  .task-slot.done-slot .task-name{text-decoration:line-through;}
+
+  /* BOTONES */
+  .btn-p{width:100%;padding:15px;background:var(--accent);color:white;border:none;border-radius:14px;font-family:'DM Sans',sans-serif;font-size:15px;font-weight:500;cursor:pointer;margin-top:6px;transition:all .15s;}
+  .btn-p:active{background:#b04f24;transform:scale(.98);}
+  .btn-s{width:100%;padding:12px 20px;border-radius:12px;border:1.5px solid var(--border);background:transparent;color:var(--text);font-family:'DM Sans',sans-serif;font-size:14px;cursor:pointer;transition:all .15s;margin-top:8px;}
+  .btn-s:active{border-color:var(--accent);}
+
+  /* SCORE */
+  .score-row{display:grid;grid-template-columns:1fr 1fr;gap:12px;}
+  .score-big{font-family:'Shippori Mincho',serif;font-size:50px;font-weight:700;color:var(--accent);line-height:1;}
+  .score-bar-w{background:var(--border);border-radius:8px;height:7px;margin:10px 0 4px;overflow:hidden;}
+  .score-bar{height:100%;background:var(--accent);border-radius:8px;transition:width 1s ease;}
+  .score-lbl{font-size:12px;color:var(--text2);}
+  .sep{height:1px;background:var(--border);margin:12px 0;}
+
+  /* TIMER */
+  .timer-c{text-align:center;padding:8px 0 16px;}
+  .t-mode{font-size:11px;color:var(--text2);text-transform:uppercase;letter-spacing:2px;margin-bottom:5px;}
+  .t-task{font-size:14px;font-weight:500;margin-bottom:16px;min-height:20px;}
+  .ring-w{position:relative;display:inline-block;margin-bottom:18px;}
+  .ring-w svg{transform:rotate(-90deg);}
+  .ring-bg{fill:none;stroke:var(--border);stroke-width:8;}
+  .ring-p{fill:none;stroke:var(--accent);stroke-width:8;stroke-linecap:round;transition:stroke-dashoffset .5s linear;}
+  .ring-t{position:absolute;top:50%;left:50%;transform:translate(-50%,-50%);font-family:'Shippori Mincho',serif;font-size:44px;font-weight:600;letter-spacing:-2px;}
+  .t-btns{display:flex;gap:10px;justify-content:center;flex-wrap:wrap;}
+  .t-btns .btn-p{width:auto;padding:13px 28px;margin-top:0;}
+  .t-btns .btn-s{width:auto;margin-top:0;padding:12px 18px;}
+
+  /* CONFIGS */
+  .cfg-row{display:grid;grid-template-columns:1fr 1fr;gap:10px;margin-bottom:12px;}
+  .field label{display:block;font-size:11px;color:var(--text2);margin-bottom:6px;text-transform:uppercase;letter-spacing:1px;}
+  .field input{width:100%;padding:11px 13px;border:1.5px solid var(--border);border-radius:10px;background:var(--bg);color:var(--text);font-family:'DM Sans',sans-serif;font-size:15px;-webkit-appearance:none;}
+  .field input:focus{outline:none;border-color:var(--accent);}
+
+  /* RUTINAS */
+  .r-card{background:var(--surface);border:1px solid var(--border);border-radius:12px;padding:13px 14px;margin-bottom:10px;cursor:pointer;display:flex;justify-content:space-between;align-items:center;transition:all .15s;}
+  .r-card:active{border-color:var(--accent3);background:rgba(61,90,138,.05);}
+  .r-name{font-weight:500;font-size:15px;}
+  .r-meta{font-size:12px;color:var(--text2);margin-top:2px;}
+  .r-arr{color:var(--text2);font-size:20px;}
+
+  /* STATS */
+  .stats-row{display:grid;grid-template-columns:repeat(3,1fr);gap:10px;margin-bottom:12px;}
+  .stat-box{background:var(--surface);border:1px solid var(--border);border-radius:12px;padding:13px 8px;text-align:center;}
+  .stat-val{font-family:'Shippori Mincho',serif;font-size:26px;font-weight:700;color:var(--accent);}
+  .stat-lbl{font-size:10px;color:var(--text2);text-transform:uppercase;letter-spacing:1px;margin-top:2px;}
+  .bar-chart{display:flex;gap:5px;align-items:flex-end;height:70px;}
+  .bar-d{flex:1;display:flex;flex-direction:column;align-items:center;gap:4px;height:100%;}
+  .bar-f{width:100%;border-radius:4px 4px 0 0;}
+  .bar-l{font-size:10px;color:var(--text2);}
+  .rat-row{display:flex;gap:10px;margin-top:8px;}
+  .star{font-size:26px;cursor:pointer;opacity:.25;transition:opacity .15s,transform .1s;}
+  .star.lit{opacity:1;}
+  .star:active{transform:scale(1.2);}
+
+  /* SONIDOS */
+  .snd-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:10px;}
+  .snd-btn{background:var(--surface);border:1.5px solid var(--border);border-radius:14px;padding:18px 8px;text-align:center;cursor:pointer;transition:all .15s;user-select:none;}
+  .snd-btn:active{border-color:var(--accent3);}
+  .snd-btn.activo{border-color:var(--accent3);background:rgba(61,90,138,.1);}
+  .snd-ico{font-size:28px;display:block;margin-bottom:7px;}
+  .snd-lbl{font-size:12px;font-weight:500;color:var(--text);}
+  .snd-btn.activo .snd-lbl{color:var(--accent3);}
+
+  /* TEMAS */
+  .theme-grid{display:grid;grid-template-columns:1fr 1fr;gap:10px;}
+  .tema-btn{border-radius:12px;padding:13px;border:1.5px solid var(--border);cursor:pointer;font-size:14px;font-family:'DM Sans',sans-serif;background:var(--surface);color:var(--text);transition:all .15s;display:flex;align-items:center;gap:8px;font-weight:500;width:100%;}
+  .tema-btn:active{border-color:var(--accent);}
+  .tema-btn.activo{border-color:var(--accent);background:rgba(196,92,46,.07);}
+
+  /* TOGGLE */
+  .tog-row{display:flex;align-items:center;justify-content:space-between;padding:14px 16px;background:var(--surface);border:1px solid var(--border);border-radius:14px;margin-bottom:12px;cursor:pointer;user-select:none;}
+  .tog-lbl{font-size:14px;font-weight:500;}
+  .tog-pill{width:44px;height:24px;background:var(--border);border-radius:12px;position:relative;transition:background .25s;flex-shrink:0;}
+  .tog-pill::after{content:'';position:absolute;width:18px;height:18px;background:white;border-radius:50%;top:3px;left:3px;transition:left .25s;box-shadow:0 1px 4px rgba(0,0,0,.2);}
+  [data-dark] .tog-pill{background:var(--accent);}
+  [data-dark] .tog-pill::after{left:23px;}
+
+  /* FRECUENTES */
+  .freq-chips{display:flex;flex-wrap:wrap;gap:8px;margin-top:8px;}
+  .chip{display:inline-flex;align-items:center;gap:5px;background:var(--bg2);border:1px solid var(--border);border-radius:20px;padding:6px 12px;font-size:12px;cursor:pointer;user-select:none;}
+  .chip:active{border-color:var(--accent);color:var(--accent);}
+
+  /* NAV INFERIOR */
+  .bot-nav{position:fixed;bottom:0;left:0;right:0;height:var(--nav-h);background:var(--bg2);border-top:1px solid var(--border);display:flex;align-items:stretch;z-index:20;padding-bottom:env(safe-area-inset-bottom);}
+  .nav-btn{flex:1;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:3px;cursor:pointer;border:none;background:transparent;color:var(--text2);font-family:'DM Sans',sans-serif;font-size:10px;user-select:none;}
+  .nav-btn .ni{font-size:22px;}
+  .nav-btn span{font-weight:500;}
+  .nav-btn.activo{color:var(--accent);}
+
+  /* MODAL */
+  .modal-bg{display:none;position:fixed;inset:0;background:rgba(0,0,0,.45);z-index:100;align-items:flex-end;justify-content:center;backdrop-filter:blur(4px);}
+  .modal-bg.abierto{display:flex;}
+  .modal{background:var(--surface);border-radius:24px 24px 0 0;padding:26px 22px 40px;width:100%;box-shadow:0 -8px 40px rgba(0,0,0,.15);animation:subir .25s ease;}
+  @keyframes subir{from{transform:translateY(100%)}to{transform:translateY(0)}}
+  .modal-h{width:36px;height:4px;background:var(--border);border-radius:2px;margin:0 auto 18px;}
+  .modal h3{font-family:'Shippori Mincho',serif;font-size:20px;margin-bottom:16px;}
+  .modal-btns{display:flex;gap:10px;margin-top:16px;}
+  .modal-btns .btn-p{margin-top:0;}
+  .modal-btns .btn-s{width:auto;margin-top:0;padding:12px 20px;}
+
+  /* CONFETTI */
+  .cfp{position:fixed;width:9px;height:9px;border-radius:2px;animation:caer 2.2s ease-out forwards;pointer-events:none;z-index:9999;}
+  @keyframes caer{0%{opacity:1;transform:translateY(-10px) rotate(0deg)}100%{opacity:0;transform:translateY(100vh) rotate(720deg)}}
+
+  /* TOAST */
+  .toast{position:fixed;bottom:calc(var(--nav-h) + 14px);left:50%;transform:translateX(-50%) translateY(20px);background:var(--text);color:var(--bg);padding:10px 20px;border-radius:20px;font-size:13px;font-weight:500;opacity:0;transition:all .3s;pointer-events:none;z-index:200;white-space:nowrap;}
+  .toast.show{opacity:1;transform:translateX(-50%) translateY(0);}
+</style>
+</head>
+<body>
+<div class="app">
+
+  <header class="topbar">
+    <div class="logo">🍱 <em>Bento</em>Focus</div>
+    <button class="icon-btn" id="btn-dark">🌙</button>
+  </header>
+
+  <div class="main">
+
+    <!-- CAJA DE ENFOQUE -->
+    <div id="pag-focus" class="page active">
+      <div class="page-title">Caja de enfoque</div>
+      <div class="page-sub" id="fecha-hoy"></div>
+
+      <div class="card">
+        <div class="card-label">Tus 3 tareas de hoy</div>
+
+        <div class="task-slot slot-small" id="slot-small">
+          <div class="task-inner">
+            <div class="size-badge">🌱 Pequeña · hasta 30 min</div>
+            <div class="task-name task-empty" id="nom-small">Toca para añadir...</div>
+          </div>
+          <div class="task-check" id="chk-small" style="display:none">✓</div>
+        </div>
+
+        <div class="task-slot slot-medium" id="slot-medium">
+          <div class="task-inner">
+            <div class="size-badge">🌿 Mediana · 30–60 min</div>
+            <div class="task-name task-empty" id="nom-medium">Toca para añadir...</div>
+          </div>
+          <div class="task-check" id="chk-medium" style="display:none">✓</div>
+        </div>
+
+        <div class="task-slot slot-large" id="slot-large">
+          <div class="task-inner">
+            <div class="size-badge">🌳 Grande · más de 60 min</div>
+            <div class="task-name task-empty" id="nom-large">Toca para añadir...</div>
+          </div>
+          <div class="task-check" id="chk-large" style="display:none">✓</div>
+        </div>
+
+        <button class="btn-p" id="btn-iniciar">▶ Comenzar sesión</button>
+        <button class="btn-s" id="btn-reset-dia">🔄 Nueva caja del día</button>
+      </div>
+
+      <div class="score-row">
+        <div class="card" style="margin-bottom:0">
+          <div class="card-label">Puntuación</div>
+          <div class="score-big" id="score-num">0%</div>
+          <div class="score-bar-w"><div class="score-bar" id="score-bar" style="width:0%"></div></div>
+          <div class="score-lbl">Meta: 100%</div>
+        </div>
+        <div class="card" style="margin-bottom:0">
+          <div class="card-label">Hoy</div>
+          <div class="score-big" id="ses-num" style="color:var(--accent3)">0</div>
+          <div class="score-lbl">sesiones</div>
+          <div class="sep"></div>
+          <div class="score-lbl">⏱ <span id="t-total">0 min</span></div>
+        </div>
+      </div>
+
+      <div class="card" id="card-freq" style="display:none;margin-top:12px">
+        <div class="card-label">Tareas frecuentes</div>
+        <div class="freq-chips" id="chips-freq"></div>
+      </div>
+    </div>
+
+    <!-- TIMER -->
+    <div id="pag-timer" class="page">
+      <div class="page-title">Temporizador</div>
+      <div class="page-sub">Método Pomodoro · sin presiones</div>
+
+      <div class="card">
+        <div class="timer-c">
+          <div class="t-mode" id="t-modo">TRABAJO 🎯</div>
+          <div class="t-task" id="t-tarea">Sin tarea activa</div>
+          <div class="ring-w">
+            <svg width="200" height="200">
+              <circle class="ring-bg" cx="100" cy="100" r="88"/>
+              <circle class="ring-p" id="ring-p" cx="100" cy="100" r="88" stroke-dasharray="553" stroke-dashoffset="553"/>
+            </svg>
+            <div class="ring-t" id="t-num">25:00</div>
+          </div>
+          <div class="t-btns">
+            <button class="btn-p" id="btn-play">▶ Iniciar</button>
+            <button class="btn-s" id="btn-reset">↺ Reset</button>
+            <button class="btn-s" id="btn-saltar">⏭ Saltar</button>
+          </div>
+        </div>
+      </div>
+
+      <div class="card">
+        <div class="card-label">Configuración</div>
+        <div class="cfg-row">
+          <div class="field"><label>Trabajo (min)</label><input type="number" id="min-trab" value="25" min="1" max="120"></div>
+          <div class="field"><label>Descanso (min)</label><input type="number" id="min-desc" value="5" min="1" max="60"></div>
+        </div>
+        <button class="btn-s" id="btn-aplicar-cfg" style="margin-top:0">Aplicar configuración</button>
+      </div>
+
+      <div class="card">
+        <div class="card-label">Tareas activas</div>
+        <div id="lista-t-timer"><div style="color:var(--text2);font-size:14px">Inicia desde la Caja de enfoque.</div></div>
+      </div>
+    </div>
+
+    <!-- RUTINAS -->
+    <div id="pag-rutinas" class="page">
+      <div class="page-title">Rutinas</div>
+      <div class="page-sub">Flujos preconfigurados según tu estado</div>
+
+      <div class="card">
+        <div class="card-label">Predefinidas</div>
+        <div class="r-card" data-rutina="deep"><div><div class="r-name">🧠 Trabajo profundo</div><div class="r-meta">90 min trabajo · 15 min descanso</div></div><span class="r-arr">›</span></div>
+        <div class="r-card" data-rutina="arrancar"><div><div class="r-name">🚀 Romper la procrastinación</div><div class="r-meta">10 min trabajo · 5 min descanso</div></div><span class="r-arr">›</span></div>
+        <div class="r-card" data-rutina="zen"><div><div class="r-name">🍃 Flujo zen</div><div class="r-meta">45 min trabajo · 10 min descanso</div></div><span class="r-arr">›</span></div>
+        <div class="r-card" data-rutina="creativo"><div><div class="r-name">🎨 Ráfaga creativa</div><div class="r-meta">20 min trabajo · 5 min descanso</div></div><span class="r-arr">›</span></div>
+      </div>
+
+      <div class="card">
+        <div class="card-label">Crear rutina personalizada</div>
+        <div class="field" style="margin-bottom:10px"><label>Nombre</label><input type="text" id="rut-nom" placeholder="Mi rutina..."></div>
+        <div class="cfg-row">
+          <div class="field"><label>Trabajo (min)</label><input type="number" id="rut-t" value="30" min="1" max="120"></div>
+          <div class="field"><label>Descanso (min)</label><input type="number" id="rut-d" value="10" min="1" max="60"></div>
+        </div>
+        <button class="btn-p" id="btn-guardar-rut">Guardar rutina</button>
+        <div id="rut-custom" style="margin-top:12px"></div>
+      </div>
+    </div>
+
+    <!-- ESTADÍSTICAS -->
+    <div id="pag-stats" class="page">
+      <div class="page-title">Estadísticas</div>
+      <div class="page-sub">Tus patrones de concentración</div>
+      <div class="stats-row" id="stats-cajas"></div>
+      <div class="card">
+        <div class="card-label">Esta semana</div>
+        <div class="bar-chart" id="grafica"></div>
+      </div>
+      <div class="card">
+        <div class="card-label">Valora tu última sesión</div>
+        <div style="font-size:13px;color:var(--text2);margin-bottom:6px">Energía</div>
+        <div class="rat-row" id="est-en">
+          <span class="star" data-tipo="energia" data-val="1">⚡</span>
+          <span class="star" data-tipo="energia" data-val="2">⚡</span>
+          <span class="star" data-tipo="energia" data-val="3">⚡</span>
+          <span class="star" data-tipo="energia" data-val="4">⚡</span>
+          <span class="star" data-tipo="energia" data-val="5">⚡</span>
+        </div>
+        <div style="font-size:13px;color:var(--text2);margin:12px 0 6px">Concentración</div>
+        <div class="rat-row" id="est-fo">
+          <span class="star" data-tipo="foco" data-val="1">🎯</span>
+          <span class="star" data-tipo="foco" data-val="2">🎯</span>
+          <span class="star" data-tipo="foco" data-val="3">🎯</span>
+          <span class="star" data-tipo="foco" data-val="4">🎯</span>
+          <span class="star" data-tipo="foco" data-val="5">🎯</span>
+        </div>
+        <div id="consejo" style="display:none;margin-top:12px;padding:12px;background:var(--bg2);border-radius:12px;font-size:13px;color:var(--text2);line-height:1.5"></div>
+      </div>
+    </div>
+
+    <!-- AMBIENTE -->
+    <div id="pag-ambiente" class="page">
+      <div class="page-title">Ambiente</div>
+      <div class="page-sub">Sonidos y apariencia</div>
+
+      <div class="tog-row" id="tog-dark">
+        <span class="tog-lbl">🌙 Modo noche</span>
+        <div class="tog-pill"></div>
+      </div>
+
+      <div class="card">
+        <div class="card-label">Sonidos ambientales</div>
+        <div class="snd-grid">
+          <div class="snd-btn" data-son="blanco"><span class="snd-ico">🌫</span  .page-title { font-family:'Shippori Mincho',serif; font-size:22px; font-weight:600; margin-bottom:4px; }
   .page-sub { color:var(--text2); font-size:13px; margin-bottom:18px; }
 
   /* TARJETAS */
