@@ -342,641 +342,22 @@
       <div class="card">
         <div class="card-label">Sonidos ambientales</div>
         <div class="snd-grid">
-          <div class="snd-btn" data-son="blanco"><span class="snd-ico">🌫</span  .page-title { font-family:'Shippori Mincho',serif; font-size:22px; font-weight:600; margin-bottom:4px; }
-  .page-sub { color:var(--text2); font-size:13px; margin-bottom:18px; }
-
-  /* TARJETAS */
-  .card { background:var(--surface); border:1px solid var(--border); border-radius:16px; padding:16px; box-shadow:var(--shadow); margin-bottom:12px; transition:background .3s; }
-  .card-label { font-size:10px; font-weight:600; text-transform:uppercase; letter-spacing:1.8px; color:var(--text2); margin-bottom:12px; }
-
-  /* TAREAS */
-  .task-slot { border:1.5px dashed var(--border); border-radius:12px; padding:13px 12px; margin-bottom:10px; cursor:pointer; transition:all .18s; position:relative; display:flex; align-items:center; min-height:62px; }
-  .task-slot:active { background:rgba(196,92,46,.06); }
-  .task-slot.filled { border-style:solid; cursor:default; }
-  .task-inner { flex:1; }
-  .size-badge { display:inline-block; padding:2px 8px; border-radius:20px; font-size:9px; font-weight:600; text-transform:uppercase; letter-spacing:1px; margin-bottom:4px; }
-  .slot-small .size-badge  { background:rgba(123,200,176,.2); color:var(--small);  border:1px solid var(--small);  }
-  .slot-medium .size-badge { background:rgba(240,168,96,.2);  color:var(--medium); border:1px solid var(--medium); }
-  .slot-large .size-badge  { background:rgba(224,120,120,.2); color:var(--large);  border:1px solid var(--large);  }
-  .task-name { font-size:15px; font-weight:500; line-height:1.3; }
-  .task-empty { color:var(--text2); font-size:14px; }
-  .task-check { width:28px; height:28px; flex-shrink:0; border:2px solid var(--border); border-radius:50%; cursor:pointer; display:flex; align-items:center; justify-content:center; font-size:13px; transition:all .2s; background:transparent; color:transparent; margin-left:10px; }
-  .task-check.done { background:var(--accent2); border-color:var(--accent2); color:white; }
-  .task-slot.done-slot { opacity:.45; }
-  .task-slot.done-slot .task-name { text-decoration:line-through; }
-
-  /* BOTONES */
-  .btn-p { width:100%; padding:15px; background:var(--accent); color:white; border:none; border-radius:14px; font-family:'DM Sans',sans-serif; font-size:15px; font-weight:500; cursor:pointer; margin-top:6px; transition:all .15s; }
-  .btn-p:active { background:#b04f24; transform:scale(.98); }
-  .btn-s { padding:12px 20px; border-radius:12px; border:1.5px solid var(--border); background:transparent; color:var(--text); font-family:'DM Sans',sans-serif; font-size:14px; cursor:pointer; transition:all .15s; }
-  .btn-s:active { border-color:var(--accent); }
-
-  /* SCORE */
-  .score-row { display:grid; grid-template-columns:1fr 1fr; gap:12px; }
-  .score-big { font-family:'Shippori Mincho',serif; font-size:50px; font-weight:700; color:var(--accent); line-height:1; }
-  .score-bar-w { background:var(--border); border-radius:8px; height:7px; margin:10px 0 4px; overflow:hidden; }
-  .score-bar { height:100%; background:var(--accent); border-radius:8px; transition:width 1s ease; }
-  .score-lbl { font-size:12px; color:var(--text2); }
-  .sep { height:1px; background:var(--border); margin:12px 0; }
-
-  /* TIMER */
-  .timer-c { text-align:center; padding:8px 0 16px; }
-  .t-mode { font-size:11px; color:var(--text2); text-transform:uppercase; letter-spacing:2px; margin-bottom:5px; }
-  .t-task { font-size:14px; font-weight:500; margin-bottom:16px; min-height:20px; }
-  .ring-w { position:relative; display:inline-block; margin-bottom:18px; }
-  .ring-w svg { transform:rotate(-90deg); }
-  .ring-bg  { fill:none; stroke:var(--border); stroke-width:8; }
-  .ring-p   { fill:none; stroke:var(--accent); stroke-width:8; stroke-linecap:round; transition:stroke-dashoffset 1s linear; }
-  .ring-t   { position:absolute; top:50%; left:50%; transform:translate(-50%,-50%); font-family:'Shippori Mincho',serif; font-size:44px; font-weight:600; letter-spacing:-2px; }
-  .t-btns   { display:flex; gap:10px; justify-content:center; flex-wrap:wrap; }
-  .t-btns .btn-p { width:auto; padding:13px 28px; margin-top:0; }
-
-  /* CONFIGS */
-  .cfg-row { display:grid; grid-template-columns:1fr 1fr; gap:10px; margin-bottom:12px; }
-  .field label { display:block; font-size:11px; color:var(--text2); margin-bottom:6px; text-transform:uppercase; letter-spacing:1px; }
-  .field input { width:100%; padding:11px 13px; border:1.5px solid var(--border); border-radius:10px; background:var(--bg); color:var(--text); font-family:'DM Sans',sans-serif; font-size:15px; -webkit-appearance:none; }
-  .field input:focus { outline:none; border-color:var(--accent); }
-
-  /* RUTINAS */
-  .r-card { background:var(--surface); border:1px solid var(--border); border-radius:12px; padding:13px 14px; margin-bottom:10px; cursor:pointer; display:flex; justify-content:space-between; align-items:center; transition:all .15s; }
-  .r-card:active { border-color:var(--accent3); background:rgba(61,90,138,.05); }
-  .r-name { font-weight:500; font-size:15px; }
-  .r-meta { font-size:12px; color:var(--text2); margin-top:2px; }
-  .r-arr  { color:var(--text2); font-size:20px; }
-
-  /* STATS */
-  .stats-row { display:grid; grid-template-columns:repeat(3,1fr); gap:10px; margin-bottom:12px; }
-  .stat-box { background:var(--surface); border:1px solid var(--border); border-radius:12px; padding:13px 8px; text-align:center; }
-  .stat-val { font-family:'Shippori Mincho',serif; font-size:26px; font-weight:700; color:var(--accent); }
-  .stat-lbl { font-size:10px; color:var(--text2); text-transform:uppercase; letter-spacing:1px; margin-top:2px; }
-  .bar-chart { display:flex; gap:5px; align-items:flex-end; height:70px; }
-  .bar-d { flex:1; display:flex; flex-direction:column; align-items:center; gap:4px; height:100%; }
-  .bar-f { width:100%; border-radius:4px 4px 0 0; background:var(--accent3); }
-  .bar-l { font-size:10px; color:var(--text2); }
-  .rat-row { display:flex; gap:10px; margin-top:8px; }
-  .star { font-size:26px; cursor:pointer; opacity:.25; transition:opacity .15s,transform .1s; }
-  .star.lit { opacity:1; }
-  .star:active { transform:scale(1.2); }
-
-  /* SONIDOS */
-  .snd-grid { display:grid; grid-template-columns:repeat(3,1fr); gap:10px; }
-  .snd-btn { background:var(--surface); border:1.5px solid var(--border); border-radius:14px; padding:18px 8px; text-align:center; cursor:pointer; transition:all .15s; }
-  .snd-btn:active { border-color:var(--accent3); }
-  .snd-btn.activo { border-color:var(--accent3); background:rgba(61,90,138,.1); }
-  .snd-ico { font-size:28px; display:block; margin-bottom:7px; }
-  .snd-lbl { font-size:12px; font-weight:500; color:var(--text); }
-  .snd-btn.activo .snd-lbl { color:var(--accent3); }
-
-  /* TEMAS */
-  .theme-grid { display:grid; grid-template-columns:1fr 1fr; gap:10px; }
-  .tema-btn { border-radius:12px; padding:13px; border:1.5px solid var(--border); cursor:pointer; font-size:14px; font-family:'DM Sans',sans-serif; background:var(--surface); color:var(--text); transition:all .15s; display:flex; align-items:center; gap:8px; font-weight:500; }
-  .tema-btn:active { border-color:var(--accent); }
-  .tema-btn.activo { border-color:var(--accent); background:rgba(196,92,46,.07); }
-
-  /* TOGGLE */
-  .tog-row { display:flex; align-items:center; justify-content:space-between; padding:14px 16px; background:var(--surface); border:1px solid var(--border); border-radius:14px; margin-bottom:12px; cursor:pointer; }
-  .tog-lbl { font-size:14px; font-weight:500; }
-  .tog-pill { width:44px; height:24px; background:var(--border); border-radius:12px; position:relative; transition:background .25s; flex-shrink:0; }
-  .tog-pill::after { content:''; position:absolute; width:18px; height:18px; background:white; border-radius:50%; top:3px; left:3px; transition:left .25s; box-shadow:0 1px 4px rgba(0,0,0,.2); }
-  [data-dark] .tog-pill { background:var(--accent); }
-  [data-dark] .tog-pill::after { left:23px; }
-
-  /* FRECUENTES */
-  .freq-chips { display:flex; flex-wrap:wrap; gap:8px; margin-top:8px; }
-  .chip { display:inline-flex; align-items:center; gap:5px; background:var(--bg2); border:1px solid var(--border); border-radius:20px; padding:6px 12px; font-size:12px; cursor:pointer; }
-  .chip:active { border-color:var(--accent); color:var(--accent); }
-
-  /* NAV INFERIOR */
-  .bot-nav { position:fixed; bottom:0; left:0; right:0; height:var(--nav-h); background:var(--bg2); border-top:1px solid var(--border); display:flex; align-items:stretch; z-index:20; padding-bottom:env(safe-area-inset-bottom); }
-  .nav-btn { flex:1; display:flex; flex-direction:column; align-items:center; justify-content:center; gap:3px; cursor:pointer; border:none; background:transparent; color:var(--text2); font-family:'DM Sans',sans-serif; font-size:10px; }
-  .nav-btn .ni { font-size:22px; }
-  .nav-btn span { font-weight:500; }
-  .nav-btn.activo { color:var(--accent); }
-
-  /* MODAL */
-  .modal-bg { display:none; position:fixed; inset:0; background:rgba(0,0,0,.45); z-index:100; align-items:flex-end; justify-content:center; backdrop-filter:blur(4px); }
-  .modal-bg.abierto { display:flex; }
-  .modal { background:var(--surface); border-radius:24px 24px 0 0; padding:26px 22px 40px; width:100%; box-shadow:0 -8px 40px rgba(0,0,0,.15); animation:subir .25s ease; }
-  @keyframes subir { from{transform:translateY(100%)} to{transform:translateY(0)} }
-  .modal-h { width:36px; height:4px; background:var(--border); border-radius:2px; margin:0 auto 18px; }
-  .modal h3 { font-family:'Shippori Mincho',serif; font-size:20px; margin-bottom:16px; }
-  .modal-btns { display:flex; gap:10px; margin-top:16px; }
-
-  /* CONFETTI */
-  .cfp { position:fixed; width:9px; height:9px; border-radius:2px; animation:caer 2.2s ease-out forwards; pointer-events:none; z-index:9999; }
-  @keyframes caer { 0%{opacity:1;transform:translateY(-10px) rotate(0deg)} 100%{opacity:0;transform:translateY(100vh) rotate(720deg)} }
-
-  /* TOAST */
-  .toast { position:fixed; bottom:calc(var(--nav-h) + 14px); left:50%; transform:translateX(-50%) translateY(20px); background:var(--text); color:var(--bg); padding:10px 20px; border-radius:20px; font-size:13px; font-weight:500; opacity:0; transition:all .3s; pointer-events:none; z-index:200; white-space:nowrap; }
-  .toast.show { opacity:1; transform:translateX(-50%) translateY(0); }
-</style>
-</head>
-<body>
-<div class="app">
-
-  <header class="topbar">
-    <div class="logo">🍱 <em>Bento</em>Focus</div>
-    <button class="icon-btn" onclick="toggleDark()">🌙</button>
-  </header>
-
-  <div class="main">
-
-    <!-- CAJA DE ENFOQUE -->
-    <div id="pag-focus" class="page active">
-      <div class="page-title">Caja de enfoque</div>
-      <div class="page-sub" id="fecha-hoy"></div>
-
-      <div class="card">
-        <div class="card-label">Tus 3 tareas de hoy</div>
-
-        <div class="task-slot slot-small" id="slot-small" onclick="abrirModal('small')">
-          <div class="task-inner">
-            <div class="size-badge">🌱 Pequeña · hasta 30 min</div>
-            <div class="task-name task-empty" id="nom-small">Toca para añadir...</div>
-          </div>
-          <div class="task-check" id="chk-small" style="display:none" onclick="event.stopPropagation();marcar('small')">✓</div>
-        </div>
-
-        <div class="task-slot slot-medium" id="slot-medium" onclick="abrirModal('medium')">
-          <div class="task-inner">
-            <div class="size-badge">🌿 Mediana · 30–60 min</div>
-            <div class="task-name task-empty" id="nom-medium">Toca para añadir...</div>
-          </div>
-          <div class="task-check" id="chk-medium" style="display:none" onclick="event.stopPropagation();marcar('medium')">✓</div>
-        </div>
-
-        <div class="task-slot slot-large" id="slot-large" onclick="abrirModal('large')">
-          <div class="task-inner">
-            <div class="size-badge">🌳 Grande · más de 60 min</div>
-            <div class="task-name task-empty" id="nom-large">Toca para añadir...</div>
-          </div>
-          <div class="task-check" id="chk-large" style="display:none" onclick="event.stopPropagation();marcar('large')">✓</div>
-        </div>
-
-        <button class="btn-p" onclick="iniciarSesion()">▶ Comenzar sesión</button>
-        <button class="btn-s" style="width:100%;margin-top:8px;text-align:center" onclick="resetearDia()">🔄 Nueva caja del día</button>
-      </div>
-
-      <div class="score-row">
-        <div class="card" style="margin-bottom:0">
-          <div class="card-label">Puntuación</div>
-          <div class="score-big" id="score-num">0%</div>
-          <div class="score-bar-w"><div class="score-bar" id="score-bar" style="width:0%"></div></div>
-          <div class="score-lbl">Meta: 100%</div>
-        </div>
-        <div class="card" style="margin-bottom:0">
-          <div class="card-label">Hoy</div>
-          <div class="score-big" id="ses-num" style="color:var(--accent3)">0</div>
-          <div class="score-lbl">sesiones</div>
-          <div class="sep"></div>
-          <div class="score-lbl">⏱ <span id="t-total">0 min</span></div>
-        </div>
-      </div>
-
-      <div class="card" id="card-freq" style="display:none;margin-top:12px">
-        <div class="card-label">Tareas frecuentes</div>
-        <div class="freq-chips" id="chips-freq"></div>
-      </div>
-    </div>
-
-    <!-- TIMER -->
-    <div id="pag-timer" class="page">
-      <div class="page-title">Temporizador</div>
-      <div class="page-sub">Método Pomodoro · sin presiones</div>
-
-      <div class="card">
-        <div class="timer-c">
-          <div class="t-mode" id="t-modo">TRABAJO 🎯</div>
-          <div class="t-task" id="t-tarea">Sin tarea activa</div>
-          <div class="ring-w">
-            <svg width="200" height="200">
-              <circle class="ring-bg" cx="100" cy="100" r="88"/>
-              <circle class="ring-p" id="ring-p" cx="100" cy="100" r="88" stroke-dasharray="553" stroke-dashoffset="553"/>
-            </svg>
-            <div class="ring-t" id="t-num">25:00</div>
-          </div>
-          <div class="t-btns">
-            <button class="btn-p" id="btn-play" onclick="alternarTimer()">▶ Iniciar</button>
-            <button class="btn-s" onclick="resetTimer()">↺ Reset</button>
-            <button class="btn-s" onclick="saltarFase()">⏭ Saltar</button>
-          </div>
-        </div>
-      </div>
-
-      <div class="card">
-        <div class="card-label">Configuración</div>
-        <div class="cfg-row">
-          <div class="field"><label>Trabajo (min)</label><input type="number" id="min-trab" value="25" min="1" max="120" onchange="actConfig()"></div>
-          <div class="field"><label>Descanso (min)</label><input type="number" id="min-desc" value="5" min="1" max="60" onchange="actConfig()"></div>
-        </div>
-      </div>
-
-      <div class="card">
-        <div class="card-label">Tareas activas</div>
-        <div id="lista-t-timer"><div style="color:var(--text2);font-size:14px">Inicia desde la Caja de enfoque.</div></div>
-      </div>
-    </div>
-
-    <!-- RUTINAS -->
-    <div id="pag-rutinas" class="page">
-      <div class="page-title">Rutinas</div>
-      <div class="page-sub">Flujos preconfigurados según tu estado</div>
-
-      <div class="card">
-        <div class="card-label">Predefinidas</div>
-        <div class="r-card" onclick="aplRutina('deep')"><div><div class="r-name">🧠 Trabajo profundo</div><div class="r-meta">90 min trabajo · 15 min descanso</div></div><span class="r-arr">›</span></div>
-        <div class="r-card" onclick="aplRutina('arrancar')"><div><div class="r-name">🚀 Romper la procrastinación</div><div class="r-meta">10 min trabajo · 5 min descanso</div></div><span class="r-arr">›</span></div>
-        <div class="r-card" onclick="aplRutina('zen')"><div><div class="r-name">🍃 Flujo zen</div><div class="r-meta">45 min trabajo · 10 min descanso</div></div><span class="r-arr">›</span></div>
-        <div class="r-card" onclick="aplRutina('creativo')"><div><div class="r-name">🎨 Ráfaga creativa</div><div class="r-meta">20 min trabajo · 5 min descanso</div></div><span class="r-arr">›</span></div>
-      </div>
-
-      <div class="card">
-        <div class="card-label">Crear rutina personalizada</div>
-        <div class="field" style="margin-bottom:10px"><label>Nombre</label><input type="text" id="rut-nom" placeholder="Mi rutina..."></div>
-        <div class="cfg-row">
-          <div class="field"><label>Trabajo (min)</label><input type="number" id="rut-t" value="30" min="1" max="120"></div>
-          <div class="field"><label>Descanso (min)</label><input type="number" id="rut-d" value="10" min="1" max="60"></div>
-        </div>
-        <button class="btn-p" onclick="guardarRutina()">Guardar rutina</button>
-        <div id="rut-custom" style="margin-top:12px"></div>
-      </div>
-    </div>
-
-    <!-- ESTADÍSTICAS -->
-    <div id="pag-stats" class="page">
-      <div class="page-title">Estadísticas</div>
-      <div class="page-sub">Tus patrones de concentración</div>
-      <div class="stats-row" id="stats-cajas"></div>
-      <div class="card">
-        <div class="card-label">Esta semana</div>
-        <div class="bar-chart" id="grafica"></div>
-      </div>
-      <div class="card">
-        <div class="card-label">Valora tu última sesión</div>
-        <div style="font-size:13px;color:var(--text2);margin-bottom:6px">Energía</div>
-        <div class="rat-row" id="est-en"><span class="star" onclick="valEn(1)">⚡</span><span class="star" onclick="valEn(2)">⚡</span><span class="star" onclick="valEn(3)">⚡</span><span class="star" onclick="valEn(4)">⚡</span><span class="star" onclick="valEn(5)">⚡</span></div>
-        <div style="font-size:13px;color:var(--text2);margin:12px 0 6px">Concentración</div>
-        <div class="rat-row" id="est-fo"><span class="star" onclick="valFo(1)">🎯</span><span class="star" onclick="valFo(2)">🎯</span><span class="star" onclick="valFo(3)">🎯</span><span class="star" onclick="valFo(4)">🎯</span><span class="star" onclick="valFo(5)">🎯</span></div>
-        <div id="consejo" style="display:none;margin-top:12px;padding:12px;background:var(--bg2);border-radius:12px;font-size:13px;color:var(--text2);line-height    ]
-  };
-  const mBlob = new Blob([JSON.stringify(manifest)], {type:'application/json'});
-  document.getElementById('pwa-manifest').href = URL.createObjectURL(mBlob);
-})();
-
-// ── PWA: Service Worker inline ──
-if('serviceWorker' in navigator) {
-  const swCode = `
-    const CACHE = 'bento-v1';
-    self.addEventListener('install', e => {
-      self.skipWaiting();
-    });
-    self.addEventListener('fetch', e => {
-      e.respondWith(
-        caches.match(e.request).then(r => r || fetch(e.request).catch(() => new Response('', {status: 200})))
-      );
-    });
-  `;
-  const swBlob = new Blob([swCode], {type:'application/javascript'});
-  navigator.serviceWorker.register(URL.createObjectURL(swBlob))
-    .catch(()=>{}); // silencioso si falla
-}
-</script>
-<link href="https://fonts.googleapis.com/css2?family=Shippori+Mincho:wght@400;600;700&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet">
-<style>
-  :root {
-    --bg: #f5f0e8; --bg2: #ede8dc; --surface: #faf7f2;
-    --border: #d4c9b0; --text: #2a2318; --text2: #7a6e5f;
-    --accent: #c45c2e; --accent2: #4a7c59; --accent3: #3d5a8a;
-    --small: #7bc8b0; --medium: #f0a860; --large: #e07878;
-    --shadow: 0 2px 16px rgba(42,35,24,0.1); --nav-h: 64px;
-  }
-  [data-dark] {
-    --bg: #1a1710; --bg2: #22201a; --surface: #2a2720;
-    --border: #3a3628; --text: #f0ebe0; --text2: #a09880;
-    --shadow: 0 2px 16px rgba(0,0,0,0.3);
-  }
-  * { margin:0; padding:0; box-sizing:border-box; -webkit-tap-highlight-color:transparent; }
-  body { font-family:'DM Sans',sans-serif; background:var(--bg); color:var(--text); min-height:100dvh; overflow-x:hidden; transition:background .3s,color .3s; }
-  .app { display:flex; flex-direction:column; min-height:100dvh; padding-bottom:var(--nav-h); }
-
-  /* CABECERA */
-  .topbar { position:sticky; top:0; z-index:20; background:var(--bg2); border-bottom:1px solid var(--border); padding:14px 18px; display:flex; align-items:center; justify-content:space-between; }
-  .logo { font-family:'Shippori Mincho',serif; font-size:20px; font-weight:700; }
-  .logo em { color:var(--accent); font-style:normal; }
-  .icon-btn { width:36px; height:36px; border:none; background:transparent; cursor:pointer; font-size:20px; display:flex; align-items:center; justify-content:center; border-radius:50%; }
-  .icon-btn:active { background:var(--border); }
-
-  /* PÁGINAS */
-  .main { flex:1; overflow-y:auto; }
-  .page { display:none; padding:18px 16px 24px; }
-  .page.active { display:block; }
-  .page-title { font-family:'Shippori Mincho',serif; font-size:22px; font-weight:600; margin-bottom:4px; }
-  .page-sub { color:var(--text2); font-size:13px; margin-bottom:18px; }
-
-  /* TARJETAS */
-  .card { background:var(--surface); border:1px solid var(--border); border-radius:16px; padding:16px; box-shadow:var(--shadow); margin-bottom:12px; transition:background .3s; }
-  .card-label { font-size:10px; font-weight:600; text-transform:uppercase; letter-spacing:1.8px; color:var(--text2); margin-bottom:12px; }
-
-  /* TAREAS */
-  .task-slot { border:1.5px dashed var(--border); border-radius:12px; padding:13px 12px; margin-bottom:10px; cursor:pointer; transition:all .18s; position:relative; display:flex; align-items:center; min-height:62px; }
-  .task-slot:active { background:rgba(196,92,46,.06); }
-  .task-slot.filled { border-style:solid; cursor:default; }
-  .task-inner { flex:1; }
-  .size-badge { display:inline-block; padding:2px 8px; border-radius:20px; font-size:9px; font-weight:600; text-transform:uppercase; letter-spacing:1px; margin-bottom:4px; }
-  .slot-small .size-badge  { background:rgba(123,200,176,.2); color:var(--small);  border:1px solid var(--small);  }
-  .slot-medium .size-badge { background:rgba(240,168,96,.2);  color:var(--medium); border:1px solid var(--medium); }
-  .slot-large .size-badge  { background:rgba(224,120,120,.2); color:var(--large);  border:1px solid var(--large);  }
-  .task-name { font-size:15px; font-weight:500; line-height:1.3; }
-  .task-empty { color:var(--text2); font-size:14px; }
-  .task-check { width:28px; height:28px; flex-shrink:0; border:2px solid var(--border); border-radius:50%; cursor:pointer; display:flex; align-items:center; justify-content:center; font-size:13px; transition:all .2s; background:transparent; color:transparent; margin-left:10px; }
-  .task-check.done { background:var(--accent2); border-color:var(--accent2); color:white; }
-  .task-slot.done-slot { opacity:.45; }
-  .task-slot.done-slot .task-name { text-decoration:line-through; }
-
-  /* BOTONES */
-  .btn-p { width:100%; padding:15px; background:var(--accent); color:white; border:none; border-radius:14px; font-family:'DM Sans',sans-serif; font-size:15px; font-weight:500; cursor:pointer; margin-top:6px; transition:all .15s; }
-  .btn-p:active { background:#b04f24; transform:scale(.98); }
-  .btn-s { padding:12px 20px; border-radius:12px; border:1.5px solid var(--border); background:transparent; color:var(--text); font-family:'DM Sans',sans-serif; font-size:14px; cursor:pointer; transition:all .15s; }
-  .btn-s:active { border-color:var(--accent); }
-
-  /* SCORE */
-  .score-row { display:grid; grid-template-columns:1fr 1fr; gap:12px; }
-  .score-big { font-family:'Shippori Mincho',serif; font-size:50px; font-weight:700; color:var(--accent); line-height:1; }
-  .score-bar-w { background:var(--border); border-radius:8px; height:7px; margin:10px 0 4px; overflow:hidden; }
-  .score-bar { height:100%; background:var(--accent); border-radius:8px; transition:width 1s ease; }
-  .score-lbl { font-size:12px; color:var(--text2); }
-  .sep { height:1px; background:var(--border); margin:12px 0; }
-
-  /* TIMER */
-  .timer-c { text-align:center; padding:8px 0 16px; }
-  .t-mode { font-size:11px; color:var(--text2); text-transform:uppercase; letter-spacing:2px; margin-bottom:5px; }
-  .t-task { font-size:14px; font-weight:500; margin-bottom:16px; min-height:20px; }
-  .ring-w { position:relative; display:inline-block; margin-bottom:18px; }
-  .ring-w svg { transform:rotate(-90deg); }
-  .ring-bg  { fill:none; stroke:var(--border); stroke-width:8; }
-  .ring-p   { fill:none; stroke:var(--accent); stroke-width:8; stroke-linecap:round; transition:stroke-dashoffset 1s linear; }
-  .ring-t   { position:absolute; top:50%; left:50%; transform:translate(-50%,-50%); font-family:'Shippori Mincho',serif; font-size:44px; font-weight:600; letter-spacing:-2px; }
-  .t-btns   { display:flex; gap:10px; justify-content:center; flex-wrap:wrap; }
-  .t-btns .btn-p { width:auto; padding:13px 28px; margin-top:0; }
-
-  /* CONFIGS */
-  .cfg-row { display:grid; grid-template-columns:1fr 1fr; gap:10px; margin-bottom:12px; }
-  .field label { display:block; font-size:11px; color:var(--text2); margin-bottom:6px; text-transform:uppercase; letter-spacing:1px; }
-  .field input { width:100%; padding:11px 13px; border:1.5px solid var(--border); border-radius:10px; background:var(--bg); color:var(--text); font-family:'DM Sans',sans-serif; font-size:15px; -webkit-appearance:none; }
-  .field input:focus { outline:none; border-color:var(--accent); }
-
-  /* RUTINAS */
-  .r-card { background:var(--surface); border:1px solid var(--border); border-radius:12px; padding:13px 14px; margin-bottom:10px; cursor:pointer; display:flex; justify-content:space-between; align-items:center; transition:all .15s; }
-  .r-card:active { border-color:var(--accent3); background:rgba(61,90,138,.05); }
-  .r-name { font-weight:500; font-size:15px; }
-  .r-meta { font-size:12px; color:var(--text2); margin-top:2px; }
-  .r-arr  { color:var(--text2); font-size:20px; }
-
-  /* STATS */
-  .stats-row { display:grid; grid-template-columns:repeat(3,1fr); gap:10px; margin-bottom:12px; }
-  .stat-box { background:var(--surface); border:1px solid var(--border); border-radius:12px; padding:13px 8px; text-align:center; }
-  .stat-val { font-family:'Shippori Mincho',serif; font-size:26px; font-weight:700; color:var(--accent); }
-  .stat-lbl { font-size:10px; color:var(--text2); text-transform:uppercase; letter-spacing:1px; margin-top:2px; }
-  .bar-chart { display:flex; gap:5px; align-items:flex-end; height:70px; }
-  .bar-d { flex:1; display:flex; flex-direction:column; align-items:center; gap:4px; height:100%; }
-  .bar-f { width:100%; border-radius:4px 4px 0 0; background:var(--accent3); }
-  .bar-l { font-size:10px; color:var(--text2); }
-  .rat-row { display:flex; gap:10px; margin-top:8px; }
-  .star { font-size:26px; cursor:pointer; opacity:.25; transition:opacity .15s,transform .1s; }
-  .star.lit { opacity:1; }
-  .star:active { transform:scale(1.2); }
-
-  /* SONIDOS */
-  .snd-grid { display:grid; grid-template-columns:repeat(3,1fr); gap:10px; }
-  .snd-btn { background:var(--surface); border:1.5px solid var(--border); border-radius:14px; padding:18px 8px; text-align:center; cursor:pointer; transition:all .15s; }
-  .snd-btn:active { border-color:var(--accent3); }
-  .snd-btn.activo { border-color:var(--accent3); background:rgba(61,90,138,.1); }
-  .snd-ico { font-size:28px; display:block; margin-bottom:7px; }
-  .snd-lbl { font-size:12px; font-weight:500; color:var(--text); }
-  .snd-btn.activo .snd-lbl { color:var(--accent3); }
-
-  /* TEMAS */
-  .theme-grid { display:grid; grid-template-columns:1fr 1fr; gap:10px; }
-  .tema-btn { border-radius:12px; padding:13px; border:1.5px solid var(--border); cursor:pointer; font-size:14px; font-family:'DM Sans',sans-serif; background:var(--surface); color:var(--text); transition:all .15s; display:flex; align-items:center; gap:8px; font-weight:500; }
-  .tema-btn:active { border-color:var(--accent); }
-  .tema-btn.activo { border-color:var(--accent); background:rgba(196,92,46,.07); }
-
-  /* TOGGLE */
-  .tog-row { display:flex; align-items:center; justify-content:space-between; padding:14px 16px; background:var(--surface); border:1px solid var(--border); border-radius:14px; margin-bottom:12px; cursor:pointer; }
-  .tog-lbl { font-size:14px; font-weight:500; }
-  .tog-pill { width:44px; height:24px; background:var(--border); border-radius:12px; position:relative; transition:background .25s; flex-shrink:0; }
-  .tog-pill::after { content:''; position:absolute; width:18px; height:18px; background:white; border-radius:50%; top:3px; left:3px; transition:left .25s; box-shadow:0 1px 4px rgba(0,0,0,.2); }
-  [data-dark] .tog-pill { background:var(--accent); }
-  [data-dark] .tog-pill::after { left:23px; }
-
-  /* FRECUENTES */
-  .freq-chips { display:flex; flex-wrap:wrap; gap:8px; margin-top:8px; }
-  .chip { display:inline-flex; align-items:center; gap:5px; background:var(--bg2); border:1px solid var(--border); border-radius:20px; padding:6px 12px; font-size:12px; cursor:pointer; }
-  .chip:active { border-color:var(--accent); color:var(--accent); }
-
-  /* NAV INFERIOR */
-  .bot-nav { position:fixed; bottom:0; left:0; right:0; height:var(--nav-h); background:var(--bg2); border-top:1px solid var(--border); display:flex; align-items:stretch; z-index:20; padding-bottom:env(safe-area-inset-bottom); }
-  .nav-btn { flex:1; display:flex; flex-direction:column; align-items:center; justify-content:center; gap:3px; cursor:pointer; border:none; background:transparent; color:var(--text2); font-family:'DM Sans',sans-serif; font-size:10px; }
-  .nav-btn .ni { font-size:22px; }
-  .nav-btn span { font-weight:500; }
-  .nav-btn.activo { color:var(--accent); }
-
-  /* MODAL */
-  .modal-bg { display:none; position:fixed; inset:0; background:rgba(0,0,0,.45); z-index:100; align-items:flex-end; justify-content:center; backdrop-filter:blur(4px); }
-  .modal-bg.abierto { display:flex; }
-  .modal { background:var(--surface); border-radius:24px 24px 0 0; padding:26px 22px 40px; width:100%; box-shadow:0 -8px 40px rgba(0,0,0,.15); animation:subir .25s ease; }
-  @keyframes subir { from{transform:translateY(100%)} to{transform:translateY(0)} }
-  .modal-h { width:36px; height:4px; background:var(--border); border-radius:2px; margin:0 auto 18px; }
-  .modal h3 { font-family:'Shippori Mincho',serif; font-size:20px; margin-bottom:16px; }
-  .modal-btns { display:flex; gap:10px; margin-top:16px; }
-
-  /* CONFETTI */
-  .cfp { position:fixed; width:9px; height:9px; border-radius:2px; animation:caer 2.2s ease-out forwards; pointer-events:none; z-index:9999; }
-  @keyframes caer { 0%{opacity:1;transform:translateY(-10px) rotate(0deg)} 100%{opacity:0;transform:translateY(100vh) rotate(720deg)} }
-
-  /* TOAST */
-  .toast { position:fixed; bottom:calc(var(--nav-h) + 14px); left:50%; transform:translateX(-50%) translateY(20px); background:var(--text); color:var(--bg); padding:10px 20px; border-radius:20px; font-size:13px; font-weight:500; opacity:0; transition:all .3s; pointer-events:none; z-index:200; white-space:nowrap; }
-  .toast.show { opacity:1; transform:translateX(-50%) translateY(0); }
-</style>
-</head>
-<body>
-<div class="app">
-
-  <header class="topbar">
-    <div class="logo">🍱 <em>Bento</em>Focus</div>
-    <button class="icon-btn" onclick="toggleDark()">🌙</button>
-  </header>
-
-  <div class="main">
-
-    <!-- CAJA DE ENFOQUE -->
-    <div id="pag-focus" class="page active">
-      <div class="page-title">Caja de enfoque</div>
-      <div class="page-sub" id="fecha-hoy"></div>
-
-      <div class="card">
-        <div class="card-label">Tus 3 tareas de hoy</div>
-
-        <div class="task-slot slot-small" id="slot-small" onclick="abrirModal('small')">
-          <div class="task-inner">
-            <div class="size-badge">🌱 Pequeña · hasta 30 min</div>
-            <div class="task-name task-empty" id="nom-small">Toca para añadir...</div>
-          </div>
-          <div class="task-check" id="chk-small" style="display:none" onclick="event.stopPropagation();marcar('small')">✓</div>
-        </div>
-
-        <div class="task-slot slot-medium" id="slot-medium" onclick="abrirModal('medium')">
-          <div class="task-inner">
-            <div class="size-badge">🌿 Mediana · 30–60 min</div>
-            <div class="task-name task-empty" id="nom-medium">Toca para añadir...</div>
-          </div>
-          <div class="task-check" id="chk-medium" style="display:none" onclick="event.stopPropagation();marcar('medium')">✓</div>
-        </div>
-
-        <div class="task-slot slot-large" id="slot-large" onclick="abrirModal('large')">
-          <div class="task-inner">
-            <div class="size-badge">🌳 Grande · más de 60 min</div>
-            <div class="task-name task-empty" id="nom-large">Toca para añadir...</div>
-          </div>
-          <div class="task-check" id="chk-large" style="display:none" onclick="event.stopPropagation();marcar('large')">✓</div>
-        </div>
-
-        <button class="btn-p" onclick="iniciarSesion()">▶ Comenzar sesión</button>
-      </div>
-
-      <div class="score-row">
-        <div class="card" style="margin-bottom:0">
-          <div class="card-label">Puntuación</div>
-          <div class="score-big" id="score-num">0%</div>
-          <div class="score-bar-w"><div class="score-bar" id="score-bar" style="width:0%"></div></div>
-          <div class="score-lbl">Meta: 100%</div>
-        </div>
-        <div class="card" style="margin-bottom:0">
-          <div class="card-label">Hoy</div>
-          <div class="score-big" id="ses-num" style="color:var(--accent3)">0</div>
-          <div class="score-lbl">sesiones</div>
-          <div class="sep"></div>
-          <div class="score-lbl">⏱ <span id="t-total">0 min</span></div>
-        </div>
-      </div>
-
-      <div class="card" id="card-freq" style="display:none;margin-top:12px">
-        <div class="card-label">Tareas frecuentes</div>
-        <div class="freq-chips" id="chips-freq"></div>
-      </div>
-    </div>
-
-    <!-- TIMER -->
-    <div id="pag-timer" class="page">
-      <div class="page-title">Temporizador</div>
-      <div class="page-sub">Método Pomodoro · sin presiones</div>
-
-      <div class="card">
-        <div class="timer-c">
-          <div class="t-mode" id="t-modo">TRABAJO 🎯</div>
-          <div class="t-task" id="t-tarea">Sin tarea activa</div>
-          <div class="ring-w">
-            <svg width="200" height="200">
-              <circle class="ring-bg" cx="100" cy="100" r="88"/>
-              <circle class="ring-p" id="ring-p" cx="100" cy="100" r="88" stroke-dasharray="553" stroke-dashoffset="553"/>
-            </svg>
-            <div class="ring-t" id="t-num">25:00</div>
-          </div>
-          <div class="t-btns">
-            <button class="btn-p" id="btn-play" onclick="alternarTimer()">▶ Iniciar</button>
-            <button class="btn-s" onclick="resetTimer()">↺ Reset</button>
-            <button class="btn-s" onclick="saltarFase()">⏭ Saltar</button>
-          </div>
-        </div>
-      </div>
-
-      <div class="card">
-        <div class="card-label">Configuración</div>
-        <div class="cfg-row">
-          <div class="field"><label>Trabajo (min)</label><input type="number" id="min-trab" value="25" min="1" max="120" onchange="actConfig()"></div>
-          <div class="field"><label>Descanso (min)</label><input type="number" id="min-desc" value="5" min="1" max="60" onchange="actConfig()"></div>
-        </div>
-      </div>
-
-      <div class="card">
-        <div class="card-label">Tareas activas</div>
-        <div id="lista-t-timer"><div style="color:var(--text2);font-size:14px">Inicia desde la Caja de enfoque.</div></div>
-      </div>
-    </div>
-
-    <!-- RUTINAS -->
-    <div id="pag-rutinas" class="page">
-      <div class="page-title">Rutinas</div>
-      <div class="page-sub">Flujos preconfigurados según tu estado</div>
-
-      <div class="card">
-        <div class="card-label">Predefinidas</div>
-        <div class="r-card" onclick="aplRutina('deep')"><div><div class="r-name">🧠 Trabajo profundo</div><div class="r-meta">90 min trabajo · 15 min descanso</div></div><span class="r-arr">›</span></div>
-        <div class="r-card" onclick="aplRutina('arrancar')"><div><div class="r-name">🚀 Romper la procrastinación</div><div class="r-meta">10 min trabajo · 5 min descanso</div></div><span class="r-arr">›</span></div>
-        <div class="r-card" onclick="aplRutina('zen')"><div><div class="r-name">🍃 Flujo zen</div><div class="r-meta">45 min trabajo · 10 min descanso</div></div><span class="r-arr">›</span></div>
-        <div class="r-card" onclick="aplRutina('creativo')"><div><div class="r-name">🎨 Ráfaga creativa</div><div class="r-meta">20 min trabajo · 5 min descanso</div></div><span class="r-arr">›</span></div>
-      </div>
-
-      <div class="card">
-        <div class="card-label">Crear rutina personalizada</div>
-        <div class="field" style="margin-bottom:10px"><label>Nombre</label><input type="text" id="rut-nom" placeholder="Mi rutina..."></div>
-        <div class="cfg-row">
-          <div class="field"><label>Trabajo (min)</label><input type="number" id="rut-t" value="30" min="1" max="120"></div>
-          <div class="field"><label>Descanso (min)</label><input type="number" id="rut-d" value="10" min="1" max="60"></div>
-        </div>
-        <button class="btn-p" onclick="guardarRutina()">Guardar rutina</button>
-        <div id="rut-custom" style="margin-top:12px"></div>
-      </div>
-    </div>
-
-    <!-- ESTADÍSTICAS -->
-    <div id="pag-stats" class="page">
-      <div class="page-title">Estadísticas</div>
-      <div class="page-sub">Tus patrones de concentración</div>
-      <div class="stats-row" id="stats-cajas"></div>
-      <div class="card">
-        <div class="card-label">Esta semana</div>
-        <div class="bar-chart" id="grafica"></div>
-      </div>
-      <div class="card">
-        <div class="card-label">Valora tu última sesión</div>
-        <div style="font-size:13px;color:var(--text2);margin-bottom:6px">Energía</div>
-        <div class="rat-row" id="est-en"><span class="star" onclick="valEn(1)">⚡</span><span class="star" onclick="valEn(2)">⚡</span><span class="star" onclick="valEn(3)">⚡</span><span class="star" onclick="valEn(4)">⚡</span><span class="star" onclick="valEn(5)">⚡</span></div>
-        <div style="font-size:13px;color:var(--text2);margin:12px 0 6px">Concentración</div>
-        <div class="rat-row" id="est-fo"><span class="star" onclick="valFo(1)">🎯</span><span class="star" onclick="valFo(2)">🎯</span><span class="star" onclick="valFo(3)">🎯</span><span class="star" onclick="valFo(4)">🎯</span><span class="star" onclick="valFo(5)">🎯</span></div>
-        <div id="consejo" style="display:none;margin-top:12px;padding:12px;background:var(--bg2);border-radius:12px;font-size:13px;color:var(--text2);line-height:1.5"></div>
-      </div>
-    </div>
-
-    <!-- AMBIENTE -->
-    <div id="pag-ambiente" class="page">
-      <div class="page-title">Ambiente</div>
-      <div class="page-sub">Sonidos y apariencia</div>
-
-      <div class="tog-row" onclick="toggleDark()">
-        <span class="tog-lbl">🌙 Modo noche</span>
-        <div class="tog-pill"></div>
-      </div>
-
-      <div class="card">
-        <div class="card-label">Sonidos ambientales</div>
-        <div class="snd-grid">
-          <div class="snd-btn" id="s-blanco"  onclick="alternarSon('blanco')"> <span class="snd-ico">🌫</span><div class="snd-lbl">Ruido blanco</div></div>
-          <div class="snd-btn" id="s-marron"  onclick="alternarSon('marron')"> <span class="snd-ico">☕</span><div class="snd-lbl">Ruido marrón</div></div>
-          <div class="snd-btn" id="s-lluvia"  onclick="alternarSon('lluvia')"> <span class="snd-ico">🌧</span><div class="snd-lbl">Lluvia</div></div>
-          <div class="snd-btn" id="s-bosque"  onclick="alternarSon('bosque')"> <span class="snd-ico">🌿</span><div class="snd-lbl">Bosque</div></div>
-          <div class="snd-btn" id="s-lofi"    onclick="alternarSon('lofi')">   <span class="snd-ico">🎵</span><div class="snd-lbl">LoFi</div></div>
-          <div class="snd-btn" id="s-fuego"   onclick="alternarSon('fuego')">  <span class="snd-ico">🔥</span><div class="snd-lbl">Chimenea</div></div>
+          <div class="snd-btn" data-son="blanco"><span class="snd-ico">🌫</span><div class="snd-lbl">Ruido blanco</div></div>
+          <div class="snd-btn" data-son="marron"><span class="snd-ico">☕</span><div class="snd-lbl">Ruido marrón</div></div>
+          <div class="snd-btn" data-son="lluvia"><span class="snd-ico">🌧</span><div class="snd-lbl">Lluvia</div></div>
+          <div class="snd-btn" data-son="bosque"><span class="snd-ico">🌿</span><div class="snd-lbl">Bosque</div></div>
+          <div class="snd-btn" data-son="lofi">  <span class="snd-ico">🎵</span><div class="snd-lbl">LoFi</div></div>
+          <div class="snd-btn" data-son="fuego"> <span class="snd-ico">🔥</span><div class="snd-lbl">Chimenea</div></div>
         </div>
       </div>
 
       <div class="card">
         <div class="card-label">Tema de color</div>
         <div class="theme-grid">
-          <button class="tema-btn activo" id="t-zen"    onclick="setTema('zen')">🍃 Zen</button>
-          <button class="tema-btn"        id="t-oceano"  onclick="setTema('oceano')">🌊 Océano</button>
-          <button class="tema-btn"        id="t-bosque"  onclick="setTema('bosque')">🌲 Bosque</button>
-          <button class="tema-btn"        id="t-arena"   onclick="setTema('arena')">🏜 Arena</button>
+          <button class="tema-btn activo" data-tema="zen">🍃 Zen</button>
+          <button class="tema-btn" data-tema="oceano">🌊 Océano</button>
+          <button class="tema-btn" data-tema="bosque">🌲 Bosque</button>
+          <button class="tema-btn" data-tema="arena">🏜 Arena</button>
         </div>
       </div>
     </div>
@@ -984,26 +365,26 @@ if('serviceWorker' in navigator) {
   </div><!-- /main -->
 
   <nav class="bot-nav">
-    <button class="nav-btn activo" id="nav-focus"   onclick="irA('focus')">  <span class="ni">🎯</span><span>Enfoque</span></button>
-    <button class="nav-btn"        id="nav-timer"   onclick="irA('timer')">  <span class="ni">⏱</span><span>Timer</span></button>
-    <button class="nav-btn"        id="nav-rutinas" onclick="irA('rutinas')"><span class="ni">📋</span><span>Rutinas</span></button>
-    <button class="nav-btn"        id="nav-stats"   onclick="irA('stats')">  <span class="ni">📊</span><span>Stats</span></button>
-    <button class="nav-btn"        id="nav-ambiente" onclick="irA('ambiente')"><span class="ni">🎵</span><span>Ambiente</span></button>
+    <button class="nav-btn activo" data-pag="focus"> <span class="ni">🎯</span><span>Enfoque</span></button>
+    <button class="nav-btn"        data-pag="timer"> <span class="ni">⏱</span><span>Timer</span></button>
+    <button class="nav-btn"        data-pag="rutinas"><span class="ni">📋</span><span>Rutinas</span></button>
+    <button class="nav-btn"        data-pag="stats">  <span class="ni">📊</span><span>Stats</span></button>
+    <button class="nav-btn"        data-pag="ambiente"><span class="ni">🎵</span><span>Ambiente</span></button>
   </nav>
 </div>
 
-<!-- MODAL -->
+<!-- MODAL AÑADIR TAREA -->
 <div class="modal-bg" id="modal">
   <div class="modal">
     <div class="modal-h"></div>
     <h3 id="modal-tit">Añadir tarea</h3>
     <div class="field">
       <label>¿En qué vas a trabajar?</label>
-      <input type="text" id="inp-tarea" placeholder="Nombre de la tarea..." onkeydown="if(event.key==='Enter')guardarTarea()">
+      <input type="text" id="inp-tarea" placeholder="Nombre de la tarea...">
     </div>
     <div class="modal-btns">
-      <button class="btn-p" style="margin-top:0" onclick="guardarTarea()">Añadir</button>
-      <button class="btn-s" onclick="cerrarModal()">Cancelar</button>
+      <button class="btn-p" id="btn-guardar-tarea">Añadir</button>
+      <button class="btn-s" id="btn-cerrar-modal">Cancelar</button>
     </div>
   </div>
 </div>
@@ -1011,396 +392,786 @@ if('serviceWorker' in navigator) {
 <div class="toast" id="toast"></div>
 
 <script>
-// ═══════════════════════════════════════
-// ESTADO
-// ═══════════════════════════════════════
+// ═══════════════════════════════════════════════════════════
+// ALMACENAMIENTO SEGURO
+// Si localStorage falla (modo privado, permisos, etc.)
+// usamos un objeto en memoria como fallback.
+// ═══════════════════════════════════════════════════════════
+const Store = (function() {
+  const mem = {};
+  let disponible = false;
+  try {
+    localStorage.setItem('_test', '1');
+    localStorage.removeItem('_test');
+    disponible = true;
+  } catch(e) {}
+
+  return {
+    get: function(k) {
+      try {
+        const v = disponible ? localStorage.getItem(k) : mem[k];
+        return v ? JSON.parse(v) : null;
+      } catch(e) { return null; }
+    },
+    set: function(k, v) {
+      try {
+        const s = JSON.stringify(v);
+        if (disponible) localStorage.setItem(k, s);
+        else mem[k] = s;
+      } catch(e) {}
+    }
+  };
+})();
+
+// ═══════════════════════════════════════════════════════════
+// ESTADO — valores por defecto seguros
+// ═══════════════════════════════════════════════════════════
 const E = {
-  tareas:  {small:null, medium:null, large:null},
-  hechas:  {small:false, medium:false, large:false},
-  sesiones: 0, minutos: 0,
-  frecuentes: [], rutinasCust: [],
+  tareas:      { small: null, medium: null, large: null },
+  hechas:      { small: false, medium: false, large: false },
+  frecuentes:  [],
+  rutinasCust: [],
   enVal: 0, foVal: 0,
-  timerOn: false, fase: 'trabajo',
-  segs: 1500, maxSegs: 1500,
   minT: 25, minD: 5,
-  iv: null,
+  fase: 'trabajo',
+  segsAlPausar: 1500,
+  maxSegs: 1500,
+  inicioTs: null,
+  historial: {},
+  // no se persisten:
+  timerOn: false, iv: null,
   actx: null, nodoAct: null, sonAct: null,
 };
 
-// ═══════════════════════════════════════
-// INICIO
-// ═══════════════════════════════════════
-function init() {
-  const d = new Date();
-  document.getElementById('fecha-hoy').textContent =
-    d.toLocaleDateString('es-ES',{weekday:'long',day:'numeric',month:'long'});
-  const g = localStorage.getItem('bf3');
-  if (g) {
-    const dd = JSON.parse(g);
-    ['tareas','hechas','sesiones','minutos','frecuentes','rutinasCust','enVal','foVal','minT','minD'].forEach(k => { if(dd[k]!==undefined) E[k]=dd[k]; });
-    E.segs = E.minT*60; E.maxSegs = E.minT*60;
-    document.getElementById('min-trab').value = E.minT;
-    document.getElementById('min-desc').value = E.minD;
+function hoyKey() {
+  return new Date().toISOString().slice(0, 10);
+}
+function datosHoy() {
+  const k = hoyKey();
+  if (!E.historial[k] || typeof E.historial[k] !== 'object') {
+    E.historial[k] = { sesiones: 0, minutos: 0 };
   }
-  renderTareas(); renderStats(); renderFreq(); renderRutCust(); actTimer();
-  if('Notification' in window) Notification.requestPermission();
+  return E.historial[k];
+}
+
+// ═══════════════════════════════════════════════════════════
+// CARGAR / GUARDAR
+// ═══════════════════════════════════════════════════════════
+function cargar() {
+  const d = Store.get('bf5');
+  if (!d || typeof d !== 'object') return;
+
+  // Copiamos solo los campos que esperamos, con validación
+  if (d.tareas && typeof d.tareas === 'object')      E.tareas      = d.tareas;
+  if (d.hechas && typeof d.hechas === 'object')      E.hechas      = d.hechas;
+  if (Array.isArray(d.frecuentes))                   E.frecuentes  = d.frecuentes;
+  if (Array.isArray(d.rutinasCust))                  E.rutinasCust = d.rutinasCust;
+  if (typeof d.enVal === 'number')                   E.enVal       = d.enVal;
+  if (typeof d.foVal === 'number')                   E.foVal       = d.foVal;
+  if (typeof d.minT === 'number' && d.minT > 0)     E.minT        = d.minT;
+  if (typeof d.minD === 'number' && d.minD > 0)     E.minD        = d.minD;
+  if (d.fase === 'trabajo' || d.fase === 'descanso') E.fase        = d.fase;
+  if (typeof d.segsAlPausar === 'number')            E.segsAlPausar = d.segsAlPausar;
+  if (typeof d.maxSegs === 'number')                 E.maxSegs     = d.maxSegs;
+  if (typeof d.inicioTs === 'number')                E.inicioTs    = d.inicioTs;
+  if (d.historial && typeof d.historial === 'object') E.historial  = d.historial;
 }
 
 function guardar() {
-  const {actx,nodoAct,iv,...d}=E;
-  localStorage.setItem('bf3',JSON.stringify(d));
-}
-
-// ═══════════════════════════════════════
-// NAVEGACIÓN
-// ═══════════════════════════════════════
-function irA(p) {
-  document.querySelectorAll('.page').forEach(x=>x.classList.remove('active'));
-  document.querySelectorAll('.nav-btn').forEach(x=>x.classList.remove('activo'));
-  document.getElementById('pag-'+p).classList.add('active');
-  document.getElementById('nav-'+p).classList.add('activo');
-  if(p==='stats') renderStats();
-}
-function toggleDark() { document.body.toggleAttribute('data-dark'); }
-
-// ═══════════════════════════════════════
-// TAREAS
-// ═══════════════════════════════════════
-let slotAct=null;
-function abrirModal(s) {
-  if(E.tareas[s]) return;
-  slotAct=s;
-  const n={small:'Tarea pequeña',medium:'Tarea mediana',large:'Tarea grande'};
-  document.getElementById('modal-tit').textContent='Añadir '+n[s];
-  document.getElementById('inp-tarea').value='';
-  document.getElementById('modal').classList.add('abierto');
-  setTimeout(()=>document.getElementById('inp-tarea').focus(),200);
-}
-function cerrarModal() { document.getElementById('modal').classList.remove('abierto'); slotAct=null; }
-function guardarTarea() {
-  const v=document.getElementById('inp-tarea').value.trim();
-  if(!v||!slotAct) return;
-  E.tareas[slotAct]=v;
-  if(!E.frecuentes.includes(v)){ E.frecuentes.push(v); if(E.frecuentes.length>10) E.frecuentes.shift(); }
-  cerrarModal(); renderTareas(); renderFreq(); guardar();
-}
-function marcar(s) {
-  if(!E.tareas[s]||E.hechas[s]) return;
-  E.hechas[s]=true; confetti(); toast('¡Tarea completada! 🎉');
-  renderTareas(); guardar();
-}
-function renderTareas() {
-  ['small','medium','large'].forEach(s=>{
-    const nom=document.getElementById('nom-'+s);
-    const sl=document.getElementById('slot-'+s);
-    const ch=document.getElementById('chk-'+s);
-    if(E.tareas[s]){
-      nom.textContent=E.tareas[s]; nom.classList.remove('task-empty');
-      sl.classList.add('filled'); sl.onclick=null; ch.style.display='flex';
-      ch.classList.toggle('done',E.hechas[s]);
-      sl.classList.toggle('done-slot',E.hechas[s]);
-    } else {
-      nom.textContent='Toca para añadir...'; nom.classList.add('task-empty');
-      sl.classList.remove('filled','done-slot'); sl.onclick=()=>abrirModal(s);
-      ch.style.display='none';
-    }
+  Store.set('bf5', {
+    tareas: E.tareas, hechas: E.hechas,
+    frecuentes: E.frecuentes, rutinasCust: E.rutinasCust,
+    enVal: E.enVal, foVal: E.foVal,
+    minT: E.minT, minD: E.minD,
+    fase: E.fase, segsAlPausar: E.segsAlPausar,
+    maxSegs: E.maxSegs, inicioTs: E.inicioTs,
+    historial: E.historial,
   });
-  actScore(); renderTareasTimer();
-}
-function actScore() {
-  const tot=Object.values(E.tareas).filter(Boolean).length;
-  const hch=Object.values(E.hechas).filter(Boolean).length;
-  const pct=tot===0?0:Math.round(hch/tot*100);
-  const score=Math.min(100,Math.round(pct*.65+Math.min(E.sesiones,6)*5.8));
-  document.getElementById('score-num').textContent=score+'%';
-  document.getElementById('score-bar').style.width=score+'%';
-  document.getElementById('ses-num').textContent=E.sesiones;
-  document.getElementById('t-total').textContent=E.minutos+' min';
-}
-function renderFreq() {
-  const el=document.getElementById('chips-freq');
-  const card=document.getElementById('card-freq');
-  if(!E.frecuentes.length){card.style.display='none';return;}
-  card.style.display='block';
-  el.innerHTML=E.frecuentes.slice(-6).reverse().map(t=>`<div class="chip" onclick="usarFreq(\`${t}\`)">↩ ${t}</div>`).join('');
-}
-function usarFreq(n) {
-  const libre=['small','medium','large'].find(s=>!E.tareas[s]);
-  if(!libre){toast('¡Ya tienes 3 tareas!');return;}
-  E.tareas[libre]=n; renderTareas(); renderFreq(); guardar();
 }
 
-// CONFETTI
-function confetti() {
-  const cols=['#c45c2e','#4a7c59','#3d5a8a','#f0a860','#7bc8b0','#e07878'];
-  for(let i=0;i<55;i++){
-    const p=document.createElement('div'); p.className='cfp';
-    p.style.cssText=`left:${Math.random()*100}vw;top:-10px;background:${cols[i%cols.length]};animation-delay:${Math.random()*.7}s;animation-duration:${1.5+Math.random()}s;transform:rotate(${Math.random()*360}deg)`;
-    document.body.appendChild(p); setTimeout(()=>p.remove(),3000);
-  }
-}
-
+// ═══════════════════════════════════════════════════════════
 // TOAST
+// ═══════════════════════════════════════════════════════════
 function toast(m) {
-  const t=document.getElementById('toast'); t.textContent=m;
-  t.classList.add('show'); setTimeout(()=>t.classList.remove('show'),2500);
+  const t = document.getElementById('toast');
+  if (!t) return;
+  t.textContent = m;
+  t.classList.add('show');
+  setTimeout(function() { t.classList.remove('show'); }, 2500);
 }
 
-// INICIAR SESIÓN
-function iniciarSesion() {
-  if(!Object.values(E.tareas).some(Boolean)){toast('Añade al menos una tarea');return;}
-  irA('timer'); renderTareasTimer();
+// ═══════════════════════════════════════════════════════════
+// NAVEGACIÓN
+// ═══════════════════════════════════════════════════════════
+function irA(pag) {
+  document.querySelectorAll('.page').forEach(function(p) { p.classList.remove('active'); });
+  document.querySelectorAll('.nav-btn').forEach(function(b) { b.classList.remove('activo'); });
+  const pg = document.getElementById('pag-' + pag);
+  if (pg) pg.classList.add('active');
+  const nb = document.querySelector('.nav-btn[data-pag="' + pag + '"]');
+  if (nb) nb.classList.add('activo');
+  if (pag === 'stats') renderStats();
+  if (pag === 'timer') renderTareasTimer();
 }
 
-// ═══════════════════════════════════════
-// TIMER
-// ═══════════════════════════════════════
-function actTimer() {
-  const m=Math.floor(E.segs/60), s=E.segs%60;
-  document.getElementById('t-num').textContent=String(m).padStart(2,'0')+':'+String(s).padStart(2,'0');
-  const prog=1-E.segs/E.maxSegs, c=553;
-  document.getElementById('ring-p').style.strokeDashoffset=c*(1-prog);
-  document.getElementById('ring-p').style.stroke=E.fase==='trabajo'?'var(--accent)':'var(--accent2)';
-  document.getElementById('t-modo').textContent=E.fase==='trabajo'?'TRABAJO 🎯':'DESCANSO 🍃';
+// ═══════════════════════════════════════════════════════════
+// TAREAS
+// ═══════════════════════════════════════════════════════════
+let slotAct = null;
+
+function abrirModal(slot) {
+  if (E.tareas[slot]) return;
+  slotAct = slot;
+  const nombres = { small: 'Tarea pequeña', medium: 'Tarea mediana', large: 'Tarea grande' };
+  const tit = document.getElementById('modal-tit');
+  const inp = document.getElementById('inp-tarea');
+  if (tit) tit.textContent = 'Añadir ' + nombres[slot];
+  if (inp) inp.value = '';
+  document.getElementById('modal').classList.add('abierto');
+  setTimeout(function() { if (inp) inp.focus(); }, 200);
 }
-function actConfig() {
-  E.minT=parseInt(document.getElementById('min-trab').value)||25;
-  E.minD=parseInt(document.getElementById('min-desc').value)||5;
-  if(!E.timerOn){E.segs=E.minT*60; E.maxSegs=E.minT*60; actTimer();}
+
+function cerrarModal() {
+  document.getElementById('modal').classList.remove('abierto');
+  slotAct = null;
+}
+
+function guardarTarea() {
+  const inp = document.getElementById('inp-tarea');
+  const v = inp ? inp.value.trim() : '';
+  if (!v || !slotAct) return;
+  E.tareas[slotAct] = v;
+  if (!E.frecuentes.includes(v)) {
+    E.frecuentes.push(v);
+    if (E.frecuentes.length > 10) E.frecuentes.shift();
+  }
+  cerrarModal();
+  renderTareas();
+  renderFreq();
   guardar();
 }
-function alternarTimer() {
-  if(E.timerOn){
-    clearInterval(E.iv); E.timerOn=false;
-    document.getElementById('btn-play').textContent='▶ Continuar';
-  } else {
-    E.timerOn=true;
-    document.getElementById('btn-play').textContent='⏸ Pausar';
-    E.iv=setInterval(()=>{
-      E.segs--;
-      if(E.segs<=0){
-        if(E.fase==='trabajo'){
-          E.sesiones++; E.minutos+=E.minT; actScore(); guardar();
-          E.fase='descanso'; E.maxSegs=E.minD*60; E.segs=E.minD*60;
-          notif('¡Buen trabajo! Descansa un poco 🍃');
-        } else {
-          E.fase='trabajo'; E.maxSegs=E.minT*60; E.segs=E.minT*60;
-          notif('¡De vuelta al trabajo! 🎯');
-        }
-      }
+
+function marcar(slot) {
+  if (!E.tareas[slot] || E.hechas[slot]) return;
+  E.hechas[slot] = true;
+  confetti();
+  toast('¡Tarea completada! 🎉');
+  renderTareas();
+  guardar();
+}
+
+function resetearDia() {
+  ['small', 'medium', 'large'].forEach(function(s) {
+    if (E.tareas[s] && !E.frecuentes.includes(E.tareas[s])) {
+      E.frecuentes.push(E.tareas[s]);
+      if (E.frecuentes.length > 10) E.frecuentes.shift();
+    }
+  });
+  E.tareas = { small: null, medium: null, large: null };
+  E.hechas = { small: false, medium: false, large: false };
+  renderTareas();
+  renderFreq();
+  guardar();
+  toast('Nueva caja lista ✨');
+}
+
+function renderTareas() {
+  ['small', 'medium', 'large'].forEach(function(s) {
+    const nom = document.getElementById('nom-' + s);
+    const sl  = document.getElementById('slot-' + s);
+    const ch  = document.getElementById('chk-' + s);
+    if (!nom || !sl || !ch) return;
+
+    if (E.tareas[s]) {
+      nom.textContent = E.tareas[s];
+      nom.classList.remove('task-empty');
+      sl.classList.add('filled');
+      ch.style.display = 'flex';
+      ch.classList.toggle('done', !!E.hechas[s]);
+      sl.classList.toggle('done-slot', !!E.hechas[s]);
+    } else {
+      nom.textContent = 'Toca para añadir...';
+      nom.classList.add('task-empty');
+      sl.classList.remove('filled', 'done-slot');
+      ch.style.display = 'none';
+    }
+  });
+  actScore();
+}
+
+function actScore() {
+  const tot = Object.values(E.tareas).filter(Boolean).length;
+  const hch = Object.values(E.hechas).filter(Boolean).length;
+  const pct = tot === 0 ? 0 : Math.round(hch / tot * 100);
+  const hoy = datosHoy();
+  const score = Math.min(100, Math.round(pct * 0.65 + Math.min(hoy.sesiones, 6) * 5.8));
+
+  const sn = document.getElementById('score-num');
+  const sb = document.getElementById('score-bar');
+  const sn2 = document.getElementById('ses-num');
+  const tt  = document.getElementById('t-total');
+  if (sn)  sn.textContent = score + '%';
+  if (sb)  sb.style.width = score + '%';
+  if (sn2) sn2.textContent = hoy.sesiones;
+  if (tt)  tt.textContent  = hoy.minutos + ' min';
+}
+
+function renderFreq() {
+  const el   = document.getElementById('chips-freq');
+  const card = document.getElementById('card-freq');
+  if (!el || !card) return;
+  if (!E.frecuentes.length) { card.style.display = 'none'; return; }
+  card.style.display = 'block';
+  el.innerHTML = E.frecuentes.slice(-6).reverse().map(function(t) {
+    return '<div class="chip" data-freq="' + encodeURIComponent(t) + '">↩ ' + t + '</div>';
+  }).join('');
+  // Conectar eventos a los chips
+  el.querySelectorAll('.chip').forEach(function(c) {
+    c.addEventListener('click', function() {
+      const nombre = decodeURIComponent(c.getAttribute('data-freq'));
+      const libre = ['small', 'medium', 'large'].find(function(s) { return !E.tareas[s]; });
+      if (!libre) { toast('¡Ya tienes 3 tareas!'); return; }
+      E.tareas[libre] = nombre;
+      renderTareas(); renderFreq(); guardar();
+    });
+  });
+}
+
+// ═══════════════════════════════════════════════════════════
+// CONFETTI
+// ═══════════════════════════════════════════════════════════
+function confetti() {
+  const cols = ['#c45c2e','#4a7c59','#3d5a8a','#f0a860','#7bc8b0','#e07878'];
+  for (var i = 0; i < 55; i++) {
+    var p = document.createElement('div');
+    p.className = 'cfp';
+    p.style.cssText = 'left:' + (Math.random()*100) + 'vw;top:-10px;background:' + cols[i % cols.length] +
+      ';animation-delay:' + (Math.random()*.7) + 's;animation-duration:' + (1.5+Math.random()) + 's;transform:rotate(' + (Math.random()*360) + 'deg)';
+    document.body.appendChild(p);
+    setTimeout(function() { if (p.parentNode) p.parentNode.removeChild(p); }, 3000);
+  }
+}
+
+// ═══════════════════════════════════════════════════════════
+// TIMER
+// ═══════════════════════════════════════════════════════════
+function segsActuales() {
+  if (E.timerOn && E.inicioTs) {
+    const trans = Math.floor((Date.now() - E.inicioTs) / 1000);
+    return Math.max(0, E.segsAlPausar - trans);
+  }
+  return E.segsAlPausar;
+}
+
+function actTimer() {
+  const segs = segsActuales();
+  const m = Math.floor(segs / 60);
+  const s = segs % 60;
+  const tn  = document.getElementById('t-num');
+  const rp  = document.getElementById('ring-p');
+  const tmo = document.getElementById('t-modo');
+  if (tn)  tn.textContent = String(m).padStart(2,'0') + ':' + String(s).padStart(2,'0');
+  if (rp) {
+    const prog = 1 - segs / Math.max(E.maxSegs, 1);
+    rp.style.strokeDashoffset = 553 * (1 - prog);
+    rp.style.stroke = E.fase === 'trabajo' ? 'var(--accent)' : 'var(--accent2)';
+  }
+  if (tmo) tmo.textContent = E.fase === 'trabajo' ? 'TRABAJO 🎯' : 'DESCANSO 🍃';
+}
+
+function arrancarIntervalo() {
+  clearInterval(E.iv);
+  E.iv = setInterval(function() {
+    const segs = segsActuales();
+    if (segs <= 0) {
+      finDeFase(false);
+    } else {
       actTimer();
-    },1000);
-  }
+    }
+  }, 500);
 }
-function resetTimer() {
-  clearInterval(E.iv); E.timerOn=false; E.fase='trabajo';
-  E.segs=E.minT*60; E.maxSegs=E.minT*60;
-  document.getElementById('btn-play').textContent='▶ Iniciar';
-  actTimer();
-}
-function saltarFase() {
-  clearInterval(E.iv); E.timerOn=false;
-  if(E.fase==='trabajo'){
-    E.sesiones++; E.minutos+=E.minT-Math.ceil(E.segs/60); actScore(); guardar();
-    E.fase='descanso'; E.maxSegs=E.minD*60; E.segs=E.minD*60;
+
+function finDeFase(silencioso) {
+  clearInterval(E.iv);
+  E.timerOn  = false;
+  E.inicioTs = null;
+
+  if (E.fase === 'trabajo') {
+    var hoy = datosHoy();
+    hoy.sesiones++;
+    hoy.minutos += E.minT;
+    actScore();
+    guardar();
+    E.fase = 'descanso';
+    E.maxSegs = E.minD * 60;
+    E.segsAlPausar = E.maxSegs;
+    if (!silencioso) notif('¡Buen trabajo! Descansa un poco 🍃');
   } else {
-    E.fase='trabajo'; E.maxSegs=E.minT*60; E.segs=E.minT*60;
+    E.fase = 'trabajo';
+    E.maxSegs = E.minT * 60;
+    E.segsAlPausar = E.maxSegs;
+    if (!silencioso) notif('¡De vuelta al trabajo! 🎯');
   }
-  document.getElementById('btn-play').textContent='▶ Iniciar';
+
+  var bp = document.getElementById('btn-play');
+  if (bp) bp.textContent = '▶ Iniciar';
+  guardar();
   actTimer();
 }
-function renderTareasTimer() {
-  const el=document.getElementById('lista-t-timer');
-  const ico={small:'🌱',medium:'🌿',large:'🌳'};
-  const act=['small','medium','large'].filter(s=>E.tareas[s]);
-  if(!act.length){el.innerHTML='<div style="color:var(--text2);font-size:14px">Vuelve a la Caja de enfoque.</div>';document.getElementById('t-tarea').textContent='Sin tarea activa';return;}
-  el.innerHTML=act.map(s=>`<div style="padding:9px 0;border-bottom:1px solid var(--border);font-size:14px;display:flex;justify-content:space-between">${ico[s]} ${E.tareas[s]}${E.hechas[s]?' <span style="color:var(--accent2)">✓</span>':''}</div>`).join('');
-  const actual=act.find(s=>!E.hechas[s]);
-  document.getElementById('t-tarea').textContent=actual?ico[actual]+' '+E.tareas[actual]:'¡Todo completado! 🎉';
+
+function alternarTimer() {
+  if (E.timerOn) {
+    clearInterval(E.iv);
+    E.segsAlPausar = segsActuales();
+    E.timerOn  = false;
+    E.inicioTs = null;
+    guardar();
+    var bp = document.getElementById('btn-play');
+    if (bp) bp.textContent = '▶ Continuar';
+  } else {
+    E.timerOn  = true;
+    E.inicioTs = Date.now();
+    guardar();
+    var bp = document.getElementById('btn-play');
+    if (bp) bp.textContent = '⏸ Pausar';
+    arrancarIntervalo();
+  }
 }
+
+function resetTimer() {
+  clearInterval(E.iv);
+  E.timerOn = false; E.inicioTs = null; E.fase = 'trabajo';
+  E.maxSegs = E.minT * 60; E.segsAlPausar = E.maxSegs;
+  var bp = document.getElementById('btn-play');
+  if (bp) bp.textContent = '▶ Iniciar';
+  guardar(); actTimer();
+}
+
+function saltarFase() {
+  clearInterval(E.iv);
+  E.timerOn = false; E.inicioTs = null;
+  if (E.fase === 'trabajo') {
+    var segsUsados = E.segsAlPausar - segsActuales();
+    var minTrabajados = Math.floor(segsUsados / 60);
+    if (minTrabajados > 0) {
+      var hoy = datosHoy();
+      hoy.sesiones++; hoy.minutos += minTrabajados;
+      actScore(); guardar();
+    }
+    E.fase = 'descanso'; E.maxSegs = E.minD * 60;
+  } else {
+    E.fase = 'trabajo'; E.maxSegs = E.minT * 60;
+  }
+  E.segsAlPausar = E.maxSegs;
+  var bp = document.getElementById('btn-play');
+  if (bp) bp.textContent = '▶ Iniciar';
+  guardar(); actTimer();
+}
+
+function renderTareasTimer() {
+  var el  = document.getElementById('lista-t-timer');
+  var tt  = document.getElementById('t-tarea');
+  var ico = { small: '🌱', medium: '🌿', large: '🌳' };
+  var act = ['small','medium','large'].filter(function(s) { return E.tareas[s]; });
+
+  if (!el) return;
+  if (!act.length) {
+    el.innerHTML = '<div style="color:var(--text2);font-size:14px">Vuelve a la Caja de enfoque.</div>';
+    if (tt) tt.textContent = 'Sin tarea activa';
+    return;
+  }
+  el.innerHTML = act.map(function(s) {
+    return '<div style="padding:9px 0;border-bottom:1px solid var(--border);font-size:14px;display:flex;justify-content:space-between">' +
+      ico[s] + ' ' + E.tareas[s] + (E.hechas[s] ? ' <span style="color:var(--accent2)">✓</span>' : '') + '</div>';
+  }).join('');
+  var actual = act.find(function(s) { return !E.hechas[s]; });
+  if (tt) tt.textContent = actual ? ico[actual] + ' ' + E.tareas[actual] : '¡Todo completado! 🎉';
+}
+
 function notif(m) {
-  if('Notification' in window&&Notification.permission==='granted') new Notification('Bento Focus',{body:m});
+  if (typeof Notification !== 'undefined' && Notification.permission === 'granted') {
+    try { new Notification('Bento Focus', { body: m }); } catch(e) {}
+  }
   toast(m);
 }
 
-// ═══════════════════════════════════════
+// ═══════════════════════════════════════════════════════════
 // RUTINAS
-// ═══════════════════════════════════════
-const RB={deep:{t:90,d:15},arrancar:{t:10,d:5},zen:{t:45,d:10},creativo:{t:20,d:5}};
+// ═══════════════════════════════════════════════════════════
+var RB = { deep:{t:90,d:15}, arrancar:{t:10,d:5}, zen:{t:45,d:10}, creativo:{t:20,d:5} };
+
 function aplRutina(id) {
-  const r=RB[id]; E.minT=r.t; E.minD=r.d;
-  document.getElementById('min-trab').value=r.t;
-  document.getElementById('min-desc').value=r.d;
-  resetTimer(); guardar(); toast('Rutina aplicada ✓ Ve al Timer para empezar');
+  var r = RB[id];
+  if (!r) return;
+  E.minT = r.t; E.minD = r.d;
+  var mt = document.getElementById('min-trab');
+  var md = document.getElementById('min-desc');
+  if (mt) mt.value = r.t;
+  if (md) md.value = r.d;
+  resetTimer();
+  toast('Rutina aplicada ✓ Ve al Timer para empezar');
 }
+
 function guardarRutina() {
-  const nom=document.getElementById('rut-nom').value.trim();
-  const t=parseInt(document.getElementById('rut-t').value);
-  const d=parseInt(document.getElementById('rut-d').value);
-  if(!nom){toast('Ponle un nombre a la rutina');return;}
-  E.rutinasCust.push({nom,t,d}); guardar(); renderRutCust();
-  document.getElementById('rut-nom').value=''; toast('Rutina guardada ✓');
+  var nom = document.getElementById('rut-nom');
+  var rt  = document.getElementById('rut-t');
+  var rd  = document.getElementById('rut-d');
+  var n = nom ? nom.value.trim() : '';
+  var t = rt  ? parseInt(rt.value)  : 0;
+  var d = rd  ? parseInt(rd.value)  : 0;
+  if (!n) { toast('Ponle un nombre a la rutina'); return; }
+  E.rutinasCust.push({ nom: n, t: t, d: d });
+  guardar(); renderRutCust();
+  if (nom) nom.value = '';
+  toast('Rutina guardada ✓');
 }
-function renderRutCust() {
-  const el=document.getElementById('rut-custom');
-  if(!E.rutinasCust.length){el.innerHTML='';return;}
-  el.innerHTML='<div class="card-label" style="margin-top:12px">Mis rutinas</div>'+
-    E.rutinasCust.map((r,i)=>`<div class="r-card" onclick="aplRutCust(${i})"><div><div class="r-name">⚡ ${r.nom}</div><div class="r-meta">${r.t} min trabajo · ${r.d} min descanso</div></div><span class="r-arr">›</span></div>`).join('');
-}
+
 function aplRutCust(i) {
-  const r=E.rutinasCust[i]; E.minT=r.t; E.minD=r.d;
-  document.getElementById('min-trab').value=r.t;
-  document.getElementById('min-desc').value=r.d;
-  resetTimer(); guardar(); toast('Rutina aplicada ✓');
+  var r = E.rutinasCust[i];
+  if (!r) return;
+  E.minT = r.t; E.minD = r.d;
+  var mt = document.getElementById('min-trab');
+  var md = document.getElementById('min-desc');
+  if (mt) mt.value = r.t;
+  if (md) md.value = r.d;
+  resetTimer();
+  toast('Rutina aplicada ✓');
 }
 
-// ═══════════════════════════════════════
+function renderRutCust() {
+  var el = document.getElementById('rut-custom');
+  if (!el) return;
+  if (!E.rutinasCust.length) { el.innerHTML = ''; return; }
+  el.innerHTML = '<div class="card-label" style="margin-top:12px">Mis rutinas</div>' +
+    E.rutinasCust.map(function(r, i) {
+      return '<div class="r-card" data-rutcust="' + i + '"><div><div class="r-name">⚡ ' + r.nom +
+        '</div><div class="r-meta">' + r.t + ' min trabajo · ' + r.d + ' min descanso</div></div><span class="r-arr">›</span></div>';
+    }).join('');
+  el.querySelectorAll('.r-card[data-rutcust]').forEach(function(c) {
+    c.addEventListener('click', function() { aplRutCust(parseInt(c.getAttribute('data-rutcust'))); });
+  });
+}
+
+// ═══════════════════════════════════════════════════════════
 // ESTADÍSTICAS
-// ═══════════════════════════════════════
+// ═══════════════════════════════════════════════════════════
+function calcularRacha() {
+  var racha = 0;
+  var hoy = new Date();
+  for (var i = 0; i < 365; i++) {
+    var d = new Date(hoy);
+    d.setDate(d.getDate() - i);
+    var k = d.toISOString().slice(0, 10);
+    if (E.historial[k] && E.historial[k].sesiones > 0) {
+      racha++;
+    } else {
+      break;
+    }
+  }
+  return racha;
+}
+
 function renderStats() {
-  document.getElementById('stats-cajas').innerHTML=`
-    <div class="stat-box"><div class="stat-val">${E.sesiones}</div><div class="stat-lbl">Sesiones</div></div>
-    <div class="stat-box"><div class="stat-val" style="color:var(--accent2)">${E.minutos}</div><div class="stat-lbl">Minutos</div></div>
-    <div class="stat-box"><div class="stat-val" style="color:var(--accent3)">${Math.max(1,Math.floor(E.sesiones/2))}</div><div class="stat-lbl">Racha 🔥</div></div>`;
-  const dias=['L','M','X','J','V','S','D'];
-  const vals=[65,80,45,90,70,30,55].map(v=>Math.min(100,v+E.sesiones*3));
-  const hoy=new Date().getDay();
-  document.getElementById('grafica').innerHTML=dias.map((d,i)=>
-    `<div class="bar-d"><div class="bar-f" style="height:${vals[i]}%;background:${i===hoy-1?'var(--accent)':'var(--accent3)'}"></div><div class="bar-l">${d}</div></div>`
-  ).join('');
+  var hoy   = datosHoy();
+  var racha = calcularRacha();
+  var totalMin = Object.values(E.historial).reduce(function(a, d) { return a + (d.minutos||0); }, 0);
+
+  var sc = document.getElementById('stats-cajas');
+  if (sc) sc.innerHTML =
+    '<div class="stat-box"><div class="stat-val">' + hoy.sesiones + '</div><div class="stat-lbl">Hoy</div></div>' +
+    '<div class="stat-box"><div class="stat-val" style="color:var(--accent2)">' + totalMin + '</div><div class="stat-lbl">Min totales</div></div>' +
+    '<div class="stat-box"><div class="stat-val" style="color:var(--accent3)">' + racha + '</div><div class="stat-lbl">Racha 🔥</div></div>';
+
+  // Últimos 7 días con datos reales
+  var dias7 = [];
+  for (var i = 6; i >= 0; i--) {
+    var d = new Date();
+    d.setDate(d.getDate() - i);
+    var k = d.toISOString().slice(0, 10);
+    var etq = d.toLocaleDateString('es-ES', { weekday: 'narrow' });
+    var mins = (E.historial[k] && E.historial[k].minutos) || 0;
+    dias7.push({ etq: etq, mins: mins, esHoy: i === 0 });
+  }
+  var maxM = Math.max.apply(null, dias7.map(function(d) { return d.mins; }).concat([1]));
+
+  var gr = document.getElementById('grafica');
+  if (gr) gr.innerHTML = dias7.map(function(d) {
+    return '<div class="bar-d"><div class="bar-f" style="height:' + Math.round(d.mins/maxM*100) +
+      '%;background:' + (d.esHoy ? 'var(--accent)' : 'var(--accent3)') + '"></div>' +
+      '<div class="bar-l">' + d.etq + '</div></div>';
+  }).join('');
+
+  // Restaurar estrellas guardadas
+  document.querySelectorAll('#est-en .star').forEach(function(s) {
+    s.classList.toggle('lit', parseInt(s.getAttribute('data-val')) <= E.enVal);
+  });
+  document.querySelectorAll('#est-fo .star').forEach(function(s) {
+    s.classList.toggle('lit', parseInt(s.getAttribute('data-val')) <= E.foVal);
+  });
+  if (E.enVal && E.foVal) mostrarConsejo();
 }
-function valEn(n){E.enVal=n;document.querySelectorAll('#est-en .star').forEach((s,i)=>s.classList.toggle('lit',i<n));mostrarConsejo();guardar();}
-function valFo(n){E.foVal=n;document.querySelectorAll('#est-fo .star').forEach((s,i)=>s.classList.toggle('lit',i<n));mostrarConsejo();guardar();}
+
 function mostrarConsejo() {
-  if(!E.enVal||!E.foVal) return;
-  const cs=['💡 Tus mejores horas son por la mañana. Pon ahí las tareas difíciles.','💡 Con poca energía el ruido marrón ayuda más que el silencio.','💡 Las sesiones de 25 min son tu punto dulce. ¡Sigue así!','💡 Un paseo de 5 min entre sesiones mejora la concentración un 40%.','💡 Dividir las tareas grandes en partes pequeñas reduce el agobio.'];
-  const el=document.getElementById('consejo');
-  el.textContent=cs[(E.enVal+E.foVal)%cs.length]; el.style.display='block';
+  var cs = [
+    '💡 Tus mejores horas son por la mañana. Pon ahí las tareas difíciles.',
+    '💡 Con poca energía el ruido marrón ayuda más que el silencio.',
+    '💡 Las sesiones de 25 min son tu punto dulce. ¡Sigue así!',
+    '💡 Un paseo de 5 min entre sesiones mejora la concentración un 40%.',
+    '💡 Dividir las tareas grandes en partes pequeñas reduce el agobio.',
+  ];
+  var el = document.getElementById('consejo');
+  if (!el) return;
+  el.textContent = cs[(E.enVal + E.foVal) % cs.length];
+  el.style.display = 'block';
 }
 
-// ═══════════════════════════════════════
-// SONIDOS  ← la parte interesante
-// ═══════════════════════════════════════
-
-/*
- ¿Cómo funciona?
- ───────────────────────────────────────
- La Web Audio API del navegador es como
- una cadena de «nodos» de audio:
-
-   [Fuente] → [Filtro] → [Ganancia] → 🔊
-
- PARA GENERAR RUIDO:
- Llenamos un buffer (array) con números
- aleatorios entre -1 y 1. Eso es RUIDO BLANCO:
- todas las frecuencias mezcladas, como la
- estática de un televisor analógico.
-
- Luego pasamos ese ruido por un FILTRO:
- - lowpass  → deja pasar solo los graves
-              → suena más cálido y grave (ruido marrón)
- - highpass → deja pasar solo los agudos
-              → mantiene el carácter «blanco»
- - bandpass → solo una franja de frecuencias
-              → imita la textura de la lluvia
-
- PARA TONOS (bosque, LoFi):
- Usamos un OSCILADOR que genera una onda
- sinusoidal perfecta a la frecuencia que queramos.
- A 70 Hz suena como un zumbido grave de fondo.
- A 180 Hz como un tono suave continuo.
-*/
-
+// ═══════════════════════════════════════════════════════════
+// SONIDOS
+// ═══════════════════════════════════════════════════════════
 function getCtx() {
-  if(!E.actx) E.actx=new(window.AudioContext||window.webkitAudioContext)();
-  if(E.actx.state==='suspended') E.actx.resume(); // en móvil se suspende hasta gesto
+  if (!E.actx) {
+    var AC = window.AudioContext || window.webkitAudioContext;
+    if (!AC) throw new Error('No AudioContext');
+    E.actx = new AC();
+  }
+  if (E.actx.state === 'suspended') E.actx.resume();
   return E.actx;
 }
 
 function crearRuido(tipo, frec) {
-  const ctx=getCtx();
-
-  // 1. Buffer de 2 segundos con muestras aleatorias
-  const buf=ctx.createBuffer(1, ctx.sampleRate*2, ctx.sampleRate);
-  const data=buf.getChannelData(0);
-  for(let i=0;i<data.length;i++) data[i]=Math.random()*2-1;
-
-  // 2. Fuente que reproduce el buffer en bucle infinito
-  const src=ctx.createBufferSource();
-  src.buffer=buf; src.loop=true;
-
-  // 3. Filtro que da «color» al ruido
-  const flt=ctx.createBiquadFilter();
-  flt.type=tipo; flt.frequency.value=frec;
-
-  // 4. Ganancia (volumen)
-  const gain=ctx.createGain();
-  gain.gain.value=0.18;
-
-  // 5. Conectar en cadena
+  var ctx = getCtx();
+  var buf = ctx.createBuffer(1, ctx.sampleRate * 2, ctx.sampleRate);
+  var data = buf.getChannelData(0);
+  for (var i = 0; i < data.length; i++) data[i] = Math.random() * 2 - 1;
+  var src = ctx.createBufferSource();
+  src.buffer = buf; src.loop = true;
+  var flt = ctx.createBiquadFilter();
+  flt.type = tipo; flt.frequency.value = frec;
+  var gain = ctx.createGain(); gain.gain.value = 0.18;
   src.connect(flt); flt.connect(gain); gain.connect(ctx.destination);
-  src.start();
-  return src;
+  src.start(); return src;
 }
 
 function crearOsc(frec) {
-  const ctx=getCtx();
-  const osc=ctx.createOscillator();
-  osc.type='sine'; osc.frequency.value=frec;
-  const gain=ctx.createGain(); gain.gain.value=0.04;
+  var ctx = getCtx();
+  var osc = ctx.createOscillator();
+  osc.type = 'sine'; osc.frequency.value = frec;
+  var gain = ctx.createGain(); gain.gain.value = 0.04;
   osc.connect(gain); gain.connect(ctx.destination);
   osc.start(); return osc;
 }
 
-// Receta de cada sonido
-const SONIDOS={
-  blanco: ()=>crearRuido('highpass',100),  // ruido blanco puro (agudos)
-  marron: ()=>crearRuido('lowpass', 300),  // ruido marrón (solo graves)
-  lluvia: ()=>crearRuido('bandpass',800),  // franja media → textura lluvia
-  bosque: ()=>crearOsc(70),               // zumbido grave y suave
-  lofi:   ()=>crearOsc(180),              // tono medio continuo
-  fuego:  ()=>crearRuido('lowpass', 150), // muy grave → rumor del fuego
+var SONIDOS = {
+  blanco: function() { return crearRuido('highpass', 100); },
+  marron: function() { return crearRuido('lowpass',  300); },
+  lluvia: function() { return crearRuido('bandpass', 800); },
+  bosque: function() { return crearOsc(70);  },
+  lofi:   function() { return crearOsc(180); },
+  fuego:  function() { return crearRuido('lowpass', 150); },
 };
 
 function alternarSon(tipo) {
-  if(E.sonAct===tipo){
-    // Mismo botón → parar
-    try{E.nodoAct?.stop();}catch(e){}
-    E.nodoAct=null; E.sonAct=null;
-    document.getElementById('s-'+tipo).classList.remove('activo');
+  if (E.sonAct === tipo) {
+    try { if (E.nodoAct) E.nodoAct.stop(); } catch(e) {}
+    E.nodoAct = null; E.sonAct = null;
+    var b = document.querySelector('.snd-btn[data-son="' + tipo + '"]');
+    if (b) b.classList.remove('activo');
     return;
   }
-  // Parar el anterior
-  if(E.sonAct){
-    try{E.nodoAct?.stop();}catch(e){}
-    document.getElementById('s-'+E.sonAct)?.classList.remove('activo');
+  if (E.sonAct) {
+    try { if (E.nodoAct) E.nodoAct.stop(); } catch(e) {}
+    var prev = document.querySelector('.snd-btn[data-son="' + E.sonAct + '"]');
+    if (prev) prev.classList.remove('activo');
   }
-  // Arrancar el nuevo
-  try{
-    E.nodoAct=SONIDOS[tipo]();
-    E.sonAct=tipo;
-    document.getElementById('s-'+tipo).classList.add('activo');
-  }catch(e){ toast('Error al cargar el audio'); E.sonAct=null; }
+  try {
+    E.nodoAct  = SONIDOS[tipo]();
+    E.sonAct   = tipo;
+    var b = document.querySelector('.snd-btn[data-son="' + tipo + '"]');
+    if (b) b.classList.add('activo');
+  } catch(e) {
+    toast('Error al cargar el audio');
+    E.sonAct = null;
+  }
 }
 
-// ═══════════════════════════════════════
+// ═══════════════════════════════════════════════════════════
 // TEMAS
-// ═══════════════════════════════════════
-const TEMAS={
-  zen:   {ac:'#c45c2e',bg:'#f5f0e8',bg2:'#ede8dc'},
-  oceano:{ac:'#2e7ac4',bg:'#e8f0f5',bg2:'#dde8f0'},
-  bosque:{ac:'#4a7c59',bg:'#e8f5ec',bg2:'#ddf0e3'},
-  arena: {ac:'#b08840',bg:'#f5f0e0',bg2:'#ede8d5'},
+// ═══════════════════════════════════════════════════════════
+var TEMAS = {
+  zen:    { ac:'#c45c2e', bg:'#f5f0e8', bg2:'#ede8dc' },
+  oceano: { ac:'#2e7ac4', bg:'#e8f0f5', bg2:'#dde8f0' },
+  bosque: { ac:'#4a7c59', bg:'#e8f5ec', bg2:'#ddf0e3' },
+  arena:  { ac:'#b08840', bg:'#f5f0e0', bg2:'#ede8d5' },
 };
-function setTema(n) {
-  const t=TEMAS[n], r=document.documentElement.style;
-  r.setProperty('--accent',t.ac);
-  if(!document.body.hasAttribute('data-dark')){r.setProperty('--bg',t.bg);r.setProperty('--bg2',t.bg2);}
-  document.querySelectorAll('.tema-btn').forEach(b=>b.classList.remove('activo'));
-  document.getElementById('t-'+n).classList.add('activo');
+
+function setTema(nombre) {
+  var t = TEMAS[nombre];
+  if (!t) return;
+  var r = document.documentElement.style;
+  r.setProperty('--accent', t.ac);
+  if (!document.body.hasAttribute('data-dark')) {
+    r.setProperty('--bg', t.bg);
+    r.setProperty('--bg2', t.bg2);
+  }
+  document.querySelectorAll('.tema-btn').forEach(function(b) { b.classList.remove('activo'); });
+  var tb = document.querySelector('.tema-btn[data-tema="' + nombre + '"]');
+  if (tb) tb.classList.add('activo');
 }
 
-init();
+// ═══════════════════════════════════════════════════════════
+// CONECTAR EVENTOS  ← todo aquí, sin onclick en el HTML
+// ═══════════════════════════════════════════════════════════
+function conectarEventos() {
+
+  // Navegación inferior
+  document.querySelectorAll('.nav-btn[data-pag]').forEach(function(btn) {
+    btn.addEventListener('click', function() { irA(btn.getAttribute('data-pag')); });
+  });
+
+  // Modo noche
+  var btnDark = document.getElementById('btn-dark');
+  if (btnDark) btnDark.addEventListener('click', function() { document.body.toggleAttribute('data-dark'); });
+  var togDark = document.getElementById('tog-dark');
+  if (togDark) togDark.addEventListener('click', function() { document.body.toggleAttribute('data-dark'); });
+
+  // Slots de tareas
+  ['small','medium','large'].forEach(function(s) {
+    var sl = document.getElementById('slot-' + s);
+    var ch = document.getElementById('chk-' + s);
+    if (sl) sl.addEventListener('click', function() { if (!E.tareas[s]) abrirModal(s); });
+    if (ch) ch.addEventListener('click', function(e) { e.stopPropagation(); marcar(s); });
+  });
+
+  // Botones de la caja de enfoque
+  var btnIniciar = document.getElementById('btn-iniciar');
+  if (btnIniciar) btnIniciar.addEventListener('click', function() {
+    if (!Object.values(E.tareas).some(Boolean)) { toast('Añade al menos una tarea'); return; }
+    irA('timer');
+  });
+  var btnResetDia = document.getElementById('btn-reset-dia');
+  if (btnResetDia) btnResetDia.addEventListener('click', resetearDia);
+
+  // Modal
+  var btnGuardarTarea = document.getElementById('btn-guardar-tarea');
+  if (btnGuardarTarea) btnGuardarTarea.addEventListener('click', guardarTarea);
+  var btnCerrarModal = document.getElementById('btn-cerrar-modal');
+  if (btnCerrarModal) btnCerrarModal.addEventListener('click', cerrarModal);
+  var inpTarea = document.getElementById('inp-tarea');
+  if (inpTarea) inpTarea.addEventListener('keydown', function(e) { if (e.key === 'Enter') guardarTarea(); });
+  // Cerrar modal tocando el fondo
+  var modalBg = document.getElementById('modal');
+  if (modalBg) modalBg.addEventListener('click', function(e) { if (e.target === modalBg) cerrarModal(); });
+
+  // Timer
+  var btnPlay   = document.getElementById('btn-play');
+  var btnReset  = document.getElementById('btn-reset');
+  var btnSaltar = document.getElementById('btn-saltar');
+  var btnAplCfg = document.getElementById('btn-aplicar-cfg');
+  if (btnPlay)   btnPlay.addEventListener('click', alternarTimer);
+  if (btnReset)  btnReset.addEventListener('click', resetTimer);
+  if (btnSaltar) btnSaltar.addEventListener('click', saltarFase);
+  if (btnAplCfg) btnAplCfg.addEventListener('click', function() {
+    var mt = document.getElementById('min-trab');
+    var md = document.getElementById('min-desc');
+    E.minT = parseInt(mt ? mt.value : 25) || 25;
+    E.minD = parseInt(md ? md.value : 5)  || 5;
+    resetTimer();
+    toast('Configuración aplicada ✓');
+  });
+
+  // Rutinas predefinidas
+  document.querySelectorAll('.r-card[data-rutina]').forEach(function(c) {
+    c.addEventListener('click', function() { aplRutina(c.getAttribute('data-rutina')); });
+  });
+  var btnGuardarRut = document.getElementById('btn-guardar-rut');
+  if (btnGuardarRut) btnGuardarRut.addEventListener('click', guardarRutina);
+
+  // Estrellas de valoración
+  document.querySelectorAll('.star[data-tipo]').forEach(function(s) {
+    s.addEventListener('click', function() {
+      var tipo = s.getAttribute('data-tipo');
+      var val  = parseInt(s.getAttribute('data-val'));
+      if (tipo === 'energia') {
+        E.enVal = val;
+        document.querySelectorAll('#est-en .star').forEach(function(st) {
+          st.classList.toggle('lit', parseInt(st.getAttribute('data-val')) <= val);
+        });
+      } else {
+        E.foVal = val;
+        document.querySelectorAll('#est-fo .star').forEach(function(st) {
+          st.classList.toggle('lit', parseInt(st.getAttribute('data-val')) <= val);
+        });
+      }
+      mostrarConsejo(); guardar();
+    });
+  });
+
+  // Sonidos
+  document.querySelectorAll('.snd-btn[data-son]').forEach(function(b) {
+    b.addEventListener('click', function() { alternarSon(b.getAttribute('data-son')); });
+  });
+
+  // Temas
+  document.querySelectorAll('.tema-btn[data-tema]').forEach(function(b) {
+    b.addEventListener('click', function() { setTema(b.getAttribute('data-tema')); });
+  });
+}
+
+// ═══════════════════════════════════════════════════════════
+// INICIO
+// ═══════════════════════════════════════════════════════════
+function init() {
+  // 1. Cargar datos guardados
+  cargar();
+
+  // 2. Mostrar fecha
+  var d = new Date();
+  var fh = document.getElementById('fecha-hoy');
+  if (fh) fh.textContent = d.toLocaleDateString('es-ES', { weekday:'long', day:'numeric', month:'long' });
+
+  // 3. Restaurar inputs del timer
+  var mt = document.getElementById('min-trab');
+  var md = document.getElementById('min-desc');
+  if (mt) mt.value = E.minT;
+  if (md) md.value = E.minD;
+
+  // 4. Recuperar timer si estaba corriendo
+  if (E.inicioTs) {
+    var trans = Math.floor((Date.now() - E.inicioTs) / 1000);
+    var restantes = E.segsAlPausar - trans;
+    if (restantes <= 0) {
+      // El tiempo terminó mientras la app estaba cerrada
+      finDeFase(true);
+    } else {
+      E.timerOn = true;
+      var bp = document.getElementById('btn-play');
+      if (bp) bp.textContent = '⏸ Pausar';
+      arrancarIntervalo();
+    }
+  }
+
+  // 5. Conectar todos los eventos
+  conectarEventos();
+
+  // 6. Renderizar UI
+  renderTareas();
+  renderFreq();
+  renderRutCust();
+  renderStats();
+  actTimer();
+
+  // 7. Pedir permiso para notificaciones
+  if (typeof Notification !== 'undefined') {
+    try { Notification.requestPermission(); } catch(e) {}
+  }
+}
+
+// Arrancar cuando el DOM esté listo
+if (document.readyState === 'loading') {
+  document.addEventListener('DOMContentLoaded', init);
+} else {
+  init();
+}
 </script>
 </body>
 </html>
